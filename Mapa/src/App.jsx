@@ -6,7 +6,9 @@ import Mapa from "./components/Mapa.jsx";
 function App() {
   return (
     <div>
-      <Mapa />
+      <div id="mapa">
+        <Mapa />
+      </div>
     </div>
   );
 }

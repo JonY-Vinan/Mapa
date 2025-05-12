@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 
-const MapComponent = () => {
+const Mapa = () => {
   const mapDiv = useRef(null);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const MapComponent = () => {
     };
   }, []);
 
-  return <div ref={mapDiv} style={{ height: "100vh", width: "100%" }} />;
+  return <div ref={mapDiv} style={{ width: "100%", height: "100vh" }} />;
 };
 
-export default MapComponent;
+export default Mapa;
