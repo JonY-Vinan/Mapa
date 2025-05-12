@@ -15,8 +15,8 @@ const Mapa = () => {
     const view = new MapView({
       container: mapDiv.current,
       map: map,
-      center: [-74.5, 40], // [longitud, latitud] (Ej: Nueva York)
-      zoom: 10,
+      center: [-3.7038, 40.4168], // Madrid, España
+      zoom: 5,
     });
 
     return () => {

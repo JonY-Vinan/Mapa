@@ -1,0 +1,191 @@
+.capa-container {
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidenav {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 280px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidenav.open {
+  left: 0;
+}
+
+.basemap-list h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+}
+
+.basemap-item {
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.basemap-item:hover {
+  background-color: #f7fafc;
+}
+
+.basemap-item label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #4a5568;
+}
+
+.basemap-item input[type="radio"],
+.basemap-item input[type="checkbox"] {
+  margin-right: 12px;
+  accent-color: #4299e1;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.nav-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background: #838181;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.nav-toggle:hover {
+  background: #4299e1;
+  color: white;
+  transform: scale(1.05);
+}
+
+.nav-toggle:active {
+  transform: scale(0.95);
+}
+
+.nav-toggle.open {
+  transform: rotate(90deg);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+/* Estilos para el componente ServidorMap */
+.servidor-map-container {
+  margin-top: 20px;
+}
+
+.selectors-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.selectors-container select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #616060;
+}
+
+.show-button {
+  padding: 8px 16px;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.show-button:hover {
+  background-color: #3182ce;
+}
+
+.show-button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.municipio-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+}
+
+.municipio-info h3 {
+  margin-top: 0;
+  color: #2d3748;
+}
+
+.municipio-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.municipio-info th,
+.municipio-info td {
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.municipio-info th {
+  background-color: #edf2f7;
+  font-weight: 600;
+}
