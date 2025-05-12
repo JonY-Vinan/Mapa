@@ -4,7 +4,8 @@ import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import SceneView from "@arcgis/core/views/SceneView";
 import Home from "@arcgis/core/widgets/Home";
-
+//importa css mapa
+import "./Mapa.css";
 const Mapa = ({ setMapView, setMapSceneView, baseMap }) => {
   const mapRef = useRef(null);
   const mapRef3D = useRef(null);

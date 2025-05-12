@@ -1,34 +1,20 @@
-import { useState } from "react";
-import Mapa from "./components/Mapa";
-import Capa from "./components/Capa";
-import "./App.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home"; // Asegúrate de que la ruta sea correcta
+import "./index.css";
 
-function App() {
-  // useState es un hook de React para manejar estado en componentes funcionales
-  const [mapView, setMapView] = useState(null);
-  const [mapSceneView, setMapSceneView] = useState(null);
-
-  //Base map
-  const [baseMap, setBaseMap] = useState({ basemap: "gray-vector" });
-
+const App = () => {
   return (
-    <>
-      <div>
-        {/* <Header /> */}
-        <Capa
-          mapView={mapView}
-          mapSceneView={mapSceneView}
-          setBaseMap={setBaseMap}
-        />
-        {/* <Fichero  mapView={mapView} mapSceneView={mapSceneView} setBaseMap={setBaseMap}/> */}
-        <Mapa
-          setMapView={setMapView}
-          setMapSceneView={setMapSceneView}
-          baseMap={baseMap}
-        />
-      </div>
-    </>
+    <Router>
+      <NavBar />
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
+    </Router>
   );
-}
-
+};
 export default App;
