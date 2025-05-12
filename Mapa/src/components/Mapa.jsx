@@ -29,14 +29,14 @@ const Mapa = ({ setMapView, setMapSceneView, baseMap }) => {
       container: mapRef.current,
       map: new Map(mapConfig),
       center: [-2.92528, 43.26271],
-      zoom: 12,
+      zoom: 5,
     });
 
     view3DRef.current = new SceneView({
       container: mapRef3D.current,
       map: new Map({ ...mapConfig, ground: "world-elevation" }),
       center: [-2.92528, 43.26271],
-      zoom: 12,
+      zoom: 6,
     });
 
     const homeWidget = new Home({
@@ -69,12 +69,6 @@ const Mapa = ({ setMapView, setMapSceneView, baseMap }) => {
 
   return (
     <div className="map-container">
-      <div className="map-controls">
-        <button className="toggle-button" onClick={toggleView}>
-          Cambiar a vista {is3DView ? "2D" : "3D"}
-        </button>
-      </div>
-
       <div
         ref={mapRef}
         className={`map-view ${!isMapVisible ? "hidden" : ""}`}

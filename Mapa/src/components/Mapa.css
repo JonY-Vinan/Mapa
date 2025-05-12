@@ -58,17 +58,6 @@
   opacity: 0;
 }
 
-/* Placeholder styles for the map views */
-.map-view::before {
-  content: "Vista de Mapa 2D";
-  font-size: 1.5rem;
-}
-
-.scene-view::before {
-  content: "Vista de Mapa 3D";
-  font-size: 1.5rem;
-}
-
 @media (max-width: 768px) {
   .map-controls {
     flex-direction: column;

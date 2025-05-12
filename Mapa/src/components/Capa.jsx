@@ -26,10 +26,6 @@ const Capa = ({ setBaseMap, toggleLayer, mapView, mapSceneView }) => {
     { id: "terrain", title: "Terreno", basemap: "terrain", visible: false },
   ]);
 
-  const toggleNav = useCallback(() => {
-    setIsNavOpen((prev) => !prev);
-  }, []);
-
   const handleBaseMapChange = useCallback(
     (selectedMap) => {
       setBaseMap(selectedMap);
@@ -54,32 +50,9 @@ const Capa = ({ setBaseMap, toggleLayer, mapView, mapSceneView }) => {
   return (
     <div className="capa-container">
       {/* Overlay para cerrar el menú */}
-      <div
-        className={`overlay ${isNavOpen ? "active" : ""}`}
-        onClick={toggleNav}
-      />
+      <div className={`overlay`} />
 
       <div className={`sidenav ${isNavOpen ? "open" : ""}`}>
-        <div className="basemap-list">
-          <h4>
-            <span className="icon mr-2">🗺️</span>
-            Mapas Base
-          </h4>
-          {baseMaps.map((map) => (
-            <div key={map.id} className="basemap-item">
-              <label>
-                <input
-                  type="radio"
-                  name="basemap"
-                  checked={map.visible}
-                  onChange={() => handleBaseMapChange(map)}
-                />
-                {map.title}
-              </label>
-            </div>
-          ))}
-        </div>
-
         <div className="basemap-list mt-8">
           <h4>
             <span className="icon mr-2">🧅</span>
@@ -88,10 +61,6 @@ const Capa = ({ setBaseMap, toggleLayer, mapView, mapSceneView }) => {
           <ServidorMap mapView={mapView} mapSceneView={mapSceneView} />
         </div>
       </div>
-
-      <button className="nav-toggle" onClick={toggleNav}>
-        {isNavOpen ? "✕" : "☰"}
-      </button>
     </div>
   );
 };
