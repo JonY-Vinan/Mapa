@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useCallback } from "react";
 import "./Capa.css";
 import ServidorMap from "./ServidorMap.jsx";

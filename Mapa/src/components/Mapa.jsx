@@ -1,31 +1,92 @@
-import React, { useEffect, useRef } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useRef, useState } from "react";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
+import SceneView from "@arcgis/core/views/SceneView";
+import Home from "@arcgis/core/widgets/Home";
 
-const Mapa = () => {
-  const mapDiv = useRef(null);
+const Mapa = ({ setMapView, setMapSceneView, baseMap }) => {
+  const mapRef = useRef(null);
+  const mapRef3D = useRef(null);
+  const [is3DView, setIs3DView] = useState(false);
+  const [isMapVisible, setIsMapVisible] = useState(true);
+
+  const viewRef = useRef(null);
+  const view3DRef = useRef(null);
+
+  const toggleView = () => setIs3DView((prev) => !prev);
+  const toggleMapVisibility = () => setIsMapVisible((prev) => !prev);
 
   useEffect(() => {
-    // Crear el mapa sin API Key (usará un basemap público)
-    const map = new Map({
-      basemap: "streets-navigation-vector", // Opciones gratuitas: "osm", "streets", "topo", etc.
+    if (!mapRef.current || !mapRef3D.current) return;
+
+    const mapConfig = {
+      basemap: baseMap?.basemap || "gray-vector",
+    };
+
+    viewRef.current = new MapView({
+      container: mapRef.current,
+      map: new Map(mapConfig),
+      center: [-2.92528, 43.26271],
+      zoom: 12,
     });
 
-    // Crear la vista del mapa
-    const view = new MapView({
-      container: mapDiv.current,
-      map: map,
-      center: [-3.7038, 40.4168], // Madrid, España
-      zoom: 5,
+    view3DRef.current = new SceneView({
+      container: mapRef3D.current,
+      map: new Map({ ...mapConfig, ground: "world-elevation" }),
+      center: [-2.92528, 43.26271],
+      zoom: 12,
     });
+
+    const homeWidget = new Home({
+      view: viewRef.current,
+    });
+    viewRef.current.ui.add(homeWidget, "top-left");
+
+    setMapView(viewRef.current);
+    setMapSceneView(view3DRef.current);
+
+    mapRef3D.current.style.display = "none";
 
     return () => {
-      // Limpiar la vista al desmontar el componente
-      if (view) view.destroy();
+      if (viewRef.current) viewRef.current.destroy();
+      if (view3DRef.current) view3DRef.current.destroy();
     };
-  }, []);
+  }, [baseMap, setMapView, setMapSceneView]);
 
-  return <div ref={mapDiv} style={{ width: "100%", height: "100vh" }} />;
+  useEffect(() => {
+    if (!mapRef.current || !mapRef3D.current) return;
+
+    if (is3DView) {
+      mapRef.current.style.display = "none";
+      mapRef3D.current.style.display = "block";
+    } else {
+      mapRef.current.style.display = "block";
+      mapRef3D.current.style.display = "none";
+    }
+  }, [is3DView]);
+
+  return (
+    <div className="map-container">
+      <div className="map-controls">
+        <button className="toggle-button" onClick={toggleView}>
+          Cambiar a vista {is3DView ? "2D" : "3D"}
+        </button>
+      </div>
+
+      <div
+        ref={mapRef}
+        className={`map-view ${!isMapVisible ? "hidden" : ""}`}
+        style={{ height: "80vh", width: "100%" }}
+      />
+
+      <div
+        ref={mapRef3D}
+        className={`scene-view ${!isMapVisible ? "hidden" : ""}`}
+        style={{ height: "80vh", width: "100%" }}
+      />
+    </div>
+  );
 };
 
 export default Mapa;
