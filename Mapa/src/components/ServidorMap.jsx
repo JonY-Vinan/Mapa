@@ -6,13 +6,14 @@ import Point from "@arcgis/core/geometry/Point";
 const apiKey =
   "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlY3VhLndhcnpvbmVAZ21haWwuY29tIiwianRpIjoiOTA4MWUxMjgtNjVhZC00ZjE5LTliMTQtNjliZDcxZGM4MDVmIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE3NDcwMzYzMTMsInVzZXJJZCI6IjkwODFlMTI4LTY1YWQtNGYxOS05YjE0LTY5YmQ3MWRjODA1ZiIsInJvbGUiOiIifQ.JKD2KQ4s0rJSw21y3pavuelgEDcehPcxuGIMLd5TuSw";
 async function recogerDatos() {
-  const url = `https://opendata.aemet.es/opendata/api/valores/climatologicos/inventarioestaciones/todasestaciones/?api_key=${apiKey}`;
+  const url = `https://opendata.aemet.es/opendata/api/maestro/municipios/?api_key=${apiKey}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Error en la respuesta: " + response.status);
     }
     const data = await response.json();
+    console.log(data);
     const estacionesResponse = await fetch(data.datos);
     if (!estacionesResponse.ok) {
       throw new Error(
@@ -62,6 +63,7 @@ const ServidorMap = ({ mapView, mapSceneView }) => {
     async function fetchData() {
       const data = await recogerDatos();
       if (data) {
+        console.log(data);
         setEstaciones(data);
       }
     }

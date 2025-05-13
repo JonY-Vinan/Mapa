@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useCallback } from "react";
 import "./Capa.css";
-import ServidorMap from "./ServidorMap.jsx";
-
+// import ServidorMap from "./ServidorMap.jsx";
+import CircuitoF1 from "./CircuitosF1.jsx";
 const Capa = ({ setBaseMap, toggleLayer, mapView, mapSceneView }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -56,9 +56,10 @@ const Capa = ({ setBaseMap, toggleLayer, mapView, mapSceneView }) => {
         <div className="basemap-list mt-8">
           <h4>
             <span className="icon mr-2">🧅</span>
-            Capas Adicionales
+            Circuitos de F1
           </h4>
-          <ServidorMap mapView={mapView} mapSceneView={mapSceneView} />
+          <CircuitoF1 mapView={mapView} mapSceneView={mapSceneView} />
+          {/* <ServidorMap mapView={mapView} mapSceneView={mapSceneView} /> */}
         </div>
       </div>
     </div>
