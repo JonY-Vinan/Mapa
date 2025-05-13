@@ -2,18 +2,44 @@ import React, { useEffect, useState } from "react";
 import Graphic from "@arcgis/core/Graphic";
 import GeoJSONLayer from "@arcgis/core/layers/GeoJSONLayer";
 
-const CircuitoF2 = ({ mapView }) => {
+const CircuitoF1 = ({ mapView }) => {
   const [circuitosF1, setCircuitosF1] = useState([]);
   const [listacp, setListacp] = useState([]);
+  const [listaTodosCircuitos, setListaTodosCircuitos] = useState([]);
   const [selectedCircuit, setSelectedCircuit] = useState(null);
   const [selectedGeoJSON, setSelectedGeoJSON] = useState(null);
   const [showCircuit, setShowCircuit] = useState(false);
+  const [showAllCircuits, setShowAllCircuits] = useState(false);
   const [geoJsonLayer, setGeoJsonLayer] = useState(null); // Guardamos la capa GeoJSON
-
   const apiUrlJson =
     "https://raw.githubusercontent.com/bacinger/f1-circuits/master/championships/f1-locations-2025.json";
   const apiUrl =
     "https://api.github.com/repos/bacinger/f1-circuits/contents/circuits";
+
+  const apiUrlAllCircuits =
+    "https://github.com/bacinger/f1-circuits/blob/master/f1-locations.geojson";
+
+  useEffect(() => {
+    const obtenerTodosLosCircuitos = async () => {
+      try {
+        const response = await fetch(apiUrlAllCircuits);
+        const data = await response.json();
+
+        setListaTodosCircuitos(
+          data.features.map((feature) => ({
+            id: feature.properties.id,
+            name: feature.properties.name,
+            coordinates: feature.geometry.coordinates,
+            active: true,
+          }))
+        );
+      } catch (error) {
+        console.error("Error al obtener todos los circuitos:", error);
+      }
+    };
+
+    obtenerTodosLosCircuitos();
+  }, []);
 
   useEffect(() => {
     const obtenerArchivosJSON = async () => {
@@ -83,13 +109,13 @@ const CircuitoF2 = ({ mapView }) => {
 
       mapView.goTo({ center: [longitude, latitude], zoom: 14 });
 
-      const point = { type: "point", longitude, latitude };
-      const symbol = { type: "simple-marker", color: "red", size: "12px" };
+      //   const point = { type: "point", longitude, latitude };
+      //   const symbol = { type: "simple-marker", color: "red", size: "12px" };
 
-      const graphic = new Graphic({ geometry: point, symbol });
+      //   const graphic = new Graphic({ geometry: point, symbol });
 
       mapView.graphics.removeAll();
-      mapView.graphics.add(graphic);
+      //   mapView.graphics.add(graphic);
     }
   };
 
@@ -115,14 +141,46 @@ const CircuitoF2 = ({ mapView }) => {
       });
     }
   };
+  const handleToggleAllCircuits = () => {
+    setShowAllCircuits(!showAllCircuits);
+
+    if (!mapView) return;
+
+    mapView.graphics.removeAll();
+
+    if (!showAllCircuits) {
+      listaTodosCircuitos.forEach((circuito) => {
+        const point = {
+          type: "point",
+          longitude: circuito.coordinates[0],
+          latitude: circuito.coordinates[1],
+        };
+
+        const symbol = {
+          type: "simple-marker",
+          color: "blue",
+          size: "12px",
+        };
+
+        const graphic = new Graphic({ geometry: point, symbol });
+
+        mapView.graphics.add(graphic);
+      });
+
+      mapView.goTo({
+        target: listaTodosCircuitos.map((c) => ({
+          longitude: c.coordinates[0],
+          latitude: c.coordinates[1],
+        })),
+        zoom: 5,
+      });
+    }
+  };
 
   return (
     <div>
-      <h2>Circuito F2</h2>
-
       {/* Selector para los circuitos F1 con checkbox */}
       <div>
-        <label htmlFor="circuit-select">Selecciona un Circuito F1:</label>
         <select
           id="circuit-select"
           onChange={(e) => handleSelectCircuit(e.target.value)}
@@ -144,7 +202,7 @@ const CircuitoF2 = ({ mapView }) => {
               checked={showCircuit}
               onChange={handleToggleCircuit}
             />
-            <label htmlFor="show-circuit">Mostrar el circuito en el mapa</label>
+            <label htmlFor="show-circuit">Mostrar el circuito </label>
           </div>
         )}
       </div>
@@ -152,4 +210,4 @@ const CircuitoF2 = ({ mapView }) => {
   );
 };
 
-export default CircuitoF2;
+export default CircuitoF1;

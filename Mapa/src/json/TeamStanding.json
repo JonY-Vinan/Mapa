@@ -1,0 +1,54 @@
+{
+  "standings": [
+    {
+      "position": 1,
+      "teamName": "McLaren Mercedes",
+      "points": 666
+    },
+    {
+      "position": 2,
+      "teamName": "Ferrari",
+      "points": 652
+    },
+    {
+      "position": 3,
+      "teamName": "Red Bull Racing Honda RBPT",
+      "points": 589
+    },
+    {
+      "position": 4,
+      "teamName": "Mercedes",
+      "points": 468
+    },
+    {
+      "position": 5,
+      "teamName": "Aston Martin Aramco Mercedes",
+      "points": 94
+    },
+    {
+      "position": 6,
+      "teamName": "Alpine Renault",
+      "points": 65
+    },
+    {
+      "position": 7,
+      "teamName": "Haas Ferrari",
+      "points": 58
+    },
+    {
+      "position": 8,
+      "teamName": "RB Honda RBPT",
+      "points": 46
+    },
+    {
+      "position": 9,
+      "teamName": "Williams Mercedes",
+      "points": 17
+    },
+    {
+      "position": 10,
+      "teamName": "Kick Sauber Ferrari",
+      "points": 4
+    }
+  ]
+}

@@ -1,0 +1,381 @@
+{
+  "trackStatus": "AllClear",
+  "weather": {
+    "AirTemp": "25.8",
+    "TrackTemp": "29.1",
+    "WindSpeed": "1.2",
+    "Rainfall": "0"
+  },
+  "session": {
+    "status": "Ends",
+    "name": "Abu Dhabi Grand Prix",
+    "sessionName": "Race"
+  },
+  "lapCount": {
+    "currentLap": 58,
+    "totalLaps": 58
+  },
+  "timingData": {
+    "sessionPart": 0,
+    "cutOffTime": ""
+  },
+  "pitStops": [
+    {
+      "driverName": "L NORRIS",
+      "driverTla": "NOR",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:43:11.101Z",
+          "lap": "26",
+          "pitStopTime": "2.0",
+          "pitLaneTime": "21.276",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "C SAINZ",
+      "driverTla": "SAI",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:41:44.93Z",
+          "lap": "25",
+          "pitStopTime": "2.2",
+          "pitLaneTime": "21.280",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "C LECLERC",
+      "driverTla": "LEC",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:34:35.212Z",
+          "lap": "20",
+          "pitStopTime": "2.7",
+          "pitLaneTime": "21.869",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "L HAMILTON",
+      "driverTla": "HAM",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:55:40.171Z",
+          "lap": "34",
+          "pitStopTime": "2.5",
+          "pitLaneTime": "21.694",
+          "previousCompound": "HARD",
+          "newCompound": "MEDIUM"
+        }
+      ]
+    },
+    {
+      "driverName": "G RUSSELL",
+      "driverTla": "RUS",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:43:34.032Z",
+          "lap": "26",
+          "pitStopTime": "2.4",
+          "pitLaneTime": "21.656",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "M VERSTAPPEN",
+      "driverTla": "VER",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:48:20.136Z",
+          "lap": "29",
+          "pitStopTime": "13.5",
+          "pitLaneTime": "32.652",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "P GASLY",
+      "driverTla": "GAS",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:25:34.002Z",
+          "lap": "14",
+          "pitStopTime": "2.6",
+          "pitLaneTime": "22.059",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "N HULKENBERG",
+      "driverTla": "HUL",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:24:07.929Z",
+          "lap": "13",
+          "pitStopTime": "2.5",
+          "pitLaneTime": "21.530",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "F ALONSO",
+      "driverTla": "ALO",
+      "totalPitStops": 2,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:24:13.849Z",
+          "lap": "13",
+          "pitStopTime": "4.3",
+          "pitLaneTime": "23.326",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        },
+        {
+          "timestamp": "2024-12-08T14:00:33.716Z",
+          "lap": "37",
+          "pitStopTime": "3.4",
+          "pitLaneTime": "22.437",
+          "previousCompound": "HARD",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "O PIASTRI",
+      "driverTla": "PIA",
+      "totalPitStops": 2,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:10:50.793Z",
+          "lap": "4",
+          "pitStopTime": "4.4",
+          "pitLaneTime": "23.582",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        },
+        {
+          "timestamp": "2024-12-08T13:53:15.592Z",
+          "lap": "32",
+          "pitStopTime": "13.4",
+          "pitLaneTime": "32.774",
+          "previousCompound": "HARD",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "A ALBON",
+      "driverTla": "ALB",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:22:50.176Z",
+          "lap": "12",
+          "pitStopTime": "3.3",
+          "pitLaneTime": "22.065",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "Y TSUNODA",
+      "driverTla": "TSU",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:38:02.632Z",
+          "lap": "22",
+          "pitStopTime": "2.4",
+          "pitLaneTime": "21.869",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "G ZHOU",
+      "driverTla": "ZHO",
+      "totalPitStops": 2,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:22:49.74Z",
+          "lap": "12",
+          "pitStopTime": "3.5",
+          "pitLaneTime": "23.024",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        },
+        {
+          "timestamp": "2024-12-08T14:03:51.458Z",
+          "lap": "39",
+          "pitStopTime": "9.2",
+          "pitLaneTime": "28.765",
+          "previousCompound": "HARD",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "L STROLL",
+      "driverTla": "STR",
+      "totalPitStops": 2,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:21:14.719Z",
+          "lap": "11",
+          "pitStopTime": "4.0",
+          "pitLaneTime": "23.266",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        },
+        {
+          "timestamp": "2024-12-08T13:53:11.117Z",
+          "lap": "32",
+          "pitStopTime": "2.6",
+          "pitLaneTime": "22.053",
+          "previousCompound": "HARD",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "J DOOHAN",
+      "driverTla": "DOO",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:38:05.033Z",
+          "lap": "22",
+          "pitStopTime": "2.6",
+          "pitLaneTime": "22.080",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "K MAGNUSSEN",
+      "driverTla": "MAG",
+      "totalPitStops": 4,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:22:47.153Z",
+          "lap": "12",
+          "pitStopTime": "7.2",
+          "pitLaneTime": "26.363",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        },
+        {
+          "timestamp": "2024-12-08T13:48:41.187Z",
+          "lap": "29",
+          "pitStopTime": "2.6",
+          "pitLaneTime": "21.678",
+          "previousCompound": "HARD",
+          "newCompound": "HARD"
+        },
+        {
+          "timestamp": "2024-12-08T13:50:44.261Z",
+          "lap": "30",
+          "pitStopTime": "2.9",
+          "pitLaneTime": "22.815",
+          "previousCompound": "HARD",
+          "newCompound": "SOFT"
+        },
+        {
+          "timestamp": "2024-12-08T14:28:28.764Z",
+          "lap": "55",
+          "pitStopTime": "2.8",
+          "pitLaneTime": "22.090",
+          "previousCompound": "SOFT",
+          "newCompound": "SOFT"
+        }
+      ]
+    },
+    {
+      "driverName": "L LAWSON",
+      "driverTla": "LAW",
+      "totalPitStops": 3,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:39:28.628Z",
+          "lap": "23",
+          "pitStopTime": "4.2",
+          "pitLaneTime": "23.415",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        },
+        {
+          "timestamp": "2024-12-08T13:41:24.188Z",
+          "lap": "24",
+          "pitStopTime": "3.5",
+          "pitLaneTime": "22.565",
+          "previousCompound": "HARD",
+          "newCompound": "HARD"
+        },
+        {
+          "timestamp": "2024-12-08T13:49:25.632Z",
+          "lap": "29",
+          "pitStopTime": "12.2",
+          "pitLaneTime": "32.317",
+          "previousCompound": "HARD",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "V BOTTAS",
+      "driverTla": "BOT",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:14:05.238Z",
+          "lap": "6",
+          "pitStopTime": "21.5",
+          "pitLaneTime": "41.144",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    },
+    {
+      "driverName": "F COLAPINTO",
+      "driverTla": "COL",
+      "totalPitStops": 1,
+      "stops": [
+        {
+          "timestamp": "2024-12-08T13:09:54.663Z",
+          "lap": "3",
+          "pitStopTime": "4.9",
+          "pitLaneTime": "24.941",
+          "previousCompound": "MEDIUM",
+          "newCompound": "HARD"
+        }
+      ]
+    }
+  ]
+}

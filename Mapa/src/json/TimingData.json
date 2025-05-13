@@ -1,0 +1,604 @@
+{
+  "trackStatus": "AllClear",
+  "weather": {
+    "AirTemp": "25.8",
+    "TrackTemp": "29.1",
+    "WindSpeed": "1.2",
+    "Rainfall": "0"
+  },
+  "session": {
+    "status": "Ends",
+    "name": "Abu Dhabi Grand Prix",
+    "sessionName": "Race"
+  },
+  "lapCount": {
+    "currentLap": 58,
+    "totalLaps": 58
+  },
+  "timingData": {
+    "sessionPart": 0,
+    "cutOffTime": "",
+    "lines": [
+      {
+        "position": "1",
+        "racingNumber": "4",
+        "driver": {
+          "racingNumber": "4",
+          "fullName": "Lando NORRIS",
+          "broadcastName": "L NORRIS",
+          "tla": "NOR",
+          "team": {
+            "name": "McLaren",
+            "color": "FF8000"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:27.438",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "",
+        "intervalToPositionAhead": ""
+      },
+      {
+        "position": "2",
+        "racingNumber": "55",
+        "driver": {
+          "racingNumber": "55",
+          "fullName": "Carlos SAINZ",
+          "broadcastName": "C SAINZ",
+          "tla": "SAI",
+          "team": {
+            "name": "Ferrari",
+            "color": "E80020"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:27.765",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+5.832",
+        "intervalToPositionAhead": "+5.832"
+      },
+      {
+        "position": "3",
+        "racingNumber": "16",
+        "driver": {
+          "racingNumber": "16",
+          "fullName": "Charles LECLERC",
+          "broadcastName": "C LECLERC",
+          "tla": "LEC",
+          "team": {
+            "name": "Ferrari",
+            "color": "E80020"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:28.018",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+31.928",
+        "intervalToPositionAhead": "+26.096"
+      },
+      {
+        "position": "4",
+        "racingNumber": "44",
+        "driver": {
+          "racingNumber": "44",
+          "fullName": "Lewis HAMILTON",
+          "broadcastName": "L HAMILTON",
+          "tla": "HAM",
+          "team": {
+            "name": "Mercedes",
+            "color": "27F4D2"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "MEDIUM",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:27.278",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+36.483",
+        "intervalToPositionAhead": "+4.555"
+      },
+      {
+        "position": "5",
+        "racingNumber": "63",
+        "driver": {
+          "racingNumber": "63",
+          "fullName": "George RUSSELL",
+          "broadcastName": "G RUSSELL",
+          "tla": "RUS",
+          "team": {
+            "name": "Mercedes",
+            "color": "27F4D2"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:28.195",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+37.538",
+        "intervalToPositionAhead": "+1.055"
+      },
+      {
+        "position": "6",
+        "racingNumber": "1",
+        "driver": {
+          "racingNumber": "1",
+          "fullName": "Max VERSTAPPEN",
+          "broadcastName": "M VERSTAPPEN",
+          "tla": "VER",
+          "team": {
+            "name": "Red Bull Racing",
+            "color": "3671C6"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:27.765",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+49.847",
+        "intervalToPositionAhead": "+12.309"
+      },
+      {
+        "position": "7",
+        "racingNumber": "10",
+        "driver": {
+          "racingNumber": "10",
+          "fullName": "Pierre GASLY",
+          "broadcastName": "P GASLY",
+          "tla": "GAS",
+          "team": {
+            "name": "Alpine",
+            "color": "0093cc"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:29.251",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+72.560",
+        "intervalToPositionAhead": "+22.713"
+      },
+      {
+        "position": "8",
+        "racingNumber": "27",
+        "driver": {
+          "racingNumber": "27",
+          "fullName": "Nico HULKENBERG",
+          "broadcastName": "N HULKENBERG",
+          "tla": "HUL",
+          "team": {
+            "name": "Haas F1 Team",
+            "color": "B6BABD"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/N/NICHUL01_Nico_Hulkenberg/nichul01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:29.152",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+75.554",
+        "intervalToPositionAhead": "+2.994"
+      },
+      {
+        "position": "9",
+        "racingNumber": "14",
+        "driver": {
+          "racingNumber": "14",
+          "fullName": "Fernando ALONSO",
+          "broadcastName": "F ALONSO",
+          "tla": "ALO",
+          "team": {
+            "name": "Aston Martin",
+            "color": "229971"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:27.948",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+82.373",
+        "intervalToPositionAhead": "+6.819"
+      },
+      {
+        "position": "10",
+        "racingNumber": "81",
+        "driver": {
+          "racingNumber": "81",
+          "fullName": "Oscar PIASTRI",
+          "broadcastName": "O PIASTRI",
+          "tla": "PIA",
+          "team": {
+            "name": "McLaren",
+            "color": "FF8000"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OSCPIA01_Oscar_Piastri/oscpia01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:27.690",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "+83.821",
+        "intervalToPositionAhead": "+1.448"
+      },
+      {
+        "position": "11",
+        "racingNumber": "23",
+        "driver": {
+          "racingNumber": "23",
+          "fullName": "Alexander ALBON",
+          "broadcastName": "A ALBON",
+          "tla": "ALB",
+          "team": {
+            "name": "Williams",
+            "color": "64C4FF"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ALEALB01_Alexander_Albon/alealb01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:29.438",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "1L",
+        "intervalToPositionAhead": "+15.440"
+      },
+      {
+        "position": "12",
+        "racingNumber": "22",
+        "driver": {
+          "racingNumber": "22",
+          "fullName": "Yuki TSUNODA",
+          "broadcastName": "Y TSUNODA",
+          "tla": "TSU",
+          "team": {
+            "name": "RB",
+            "color": "6692FF"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:29.200",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "1L",
+        "intervalToPositionAhead": "+3.487"
+      },
+      {
+        "position": "13",
+        "racingNumber": "24",
+        "driver": {
+          "racingNumber": "24",
+          "fullName": "ZHOU Guanyu",
+          "broadcastName": "G ZHOU",
+          "tla": "ZHO",
+          "team": {
+            "name": "Kick Sauber",
+            "color": "52e252"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GUAZHO01_Guanyu_Zhou/guazho01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:27.982",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "1L",
+        "intervalToPositionAhead": "+2.566"
+      },
+      {
+        "position": "14",
+        "racingNumber": "18",
+        "driver": {
+          "racingNumber": "18",
+          "fullName": "Lance STROLL",
+          "broadcastName": "L STROLL",
+          "tla": "STR",
+          "team": {
+            "name": "Aston Martin",
+            "color": "229971"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANSTR01_Lance_Stroll/lanstr01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:28.604",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "1L",
+        "intervalToPositionAhead": "+1.169"
+      },
+      {
+        "position": "15",
+        "racingNumber": "61",
+        "driver": {
+          "racingNumber": "61",
+          "fullName": "Jack DOOHAN",
+          "broadcastName": "J DOOHAN",
+          "tla": "DOO",
+          "team": {
+            "name": "Alpine",
+            "color": "0093cc"
+          },
+          "headshotUrl": ""
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:29.121",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "1L",
+        "intervalToPositionAhead": "+8.082"
+      },
+      {
+        "position": "16",
+        "racingNumber": "20",
+        "driver": {
+          "racingNumber": "20",
+          "fullName": "Kevin MAGNUSSEN",
+          "broadcastName": "K MAGNUSSEN",
+          "tla": "MAG",
+          "team": {
+            "name": "Haas F1 Team",
+            "color": "B6BABD"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/K/KEVMAG01_Kevin_Magnussen/kevmag01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": false,
+        "compound": "SOFT",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:25.637",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "1L",
+        "intervalToPositionAhead": "+51.042"
+      },
+      {
+        "position": "17",
+        "racingNumber": "30",
+        "driver": {
+          "racingNumber": "30",
+          "fullName": "Liam LAWSON",
+          "broadcastName": "L LAWSON",
+          "tla": "LAW",
+          "team": {
+            "name": "RB",
+            "color": "6692FF"
+          },
+          "headshotUrl": ""
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": true,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:28.751",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "3L",
+        "intervalToPositionAhead": "2L"
+      },
+      {
+        "position": "18",
+        "racingNumber": "77",
+        "driver": {
+          "racingNumber": "77",
+          "fullName": "Valtteri BOTTAS",
+          "broadcastName": "V BOTTAS",
+          "tla": "BOT",
+          "team": {
+            "name": "Kick Sauber",
+            "color": "52e252"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/V/VALBOT01_Valtteri_Bottas/valbot01.png"
+        },
+        "retired": true,
+        "inPit": true,
+        "pitOut": false,
+        "stopped": true,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:29.482",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "28L",
+        "intervalToPositionAhead": "25L"
+      },
+      {
+        "position": "19",
+        "racingNumber": "43",
+        "driver": {
+          "racingNumber": "43",
+          "fullName": "Franco COLAPINTO",
+          "broadcastName": "F COLAPINTO",
+          "tla": "COL",
+          "team": {
+            "name": "Williams",
+            "color": "64C4FF"
+          },
+          "headshotUrl": ""
+        },
+        "retired": true,
+        "inPit": true,
+        "pitOut": false,
+        "stopped": true,
+        "compound": "HARD",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "1:29.411",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "32L",
+        "intervalToPositionAhead": "4L"
+      },
+      {
+        "position": "20",
+        "racingNumber": "11",
+        "driver": {
+          "racingNumber": "11",
+          "fullName": "Sergio PEREZ",
+          "broadcastName": "S PEREZ",
+          "tla": "PER",
+          "team": {
+            "name": "Red Bull Racing",
+            "color": "3671C6"
+          },
+          "headshotUrl": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/S/SERPER01_Sergio_Perez/serper01.png"
+        },
+        "retired": false,
+        "inPit": false,
+        "pitOut": false,
+        "stopped": true,
+        "compound": "MEDIUM",
+        "timeDiffToFastest": "",
+        "timeDiffToPositionAhead": "",
+        "bestLapTime": "",
+        "knockedOut": false,
+        "lastBestLapTime": "",
+        "lastTimeDiffToFastest": "",
+        "lastTimeDiffToPositionAhead": "",
+        "gapToLeader": "",
+        "intervalToPositionAhead": ""
+      }
+    ]
+  }
+}
