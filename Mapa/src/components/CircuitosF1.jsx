@@ -51,6 +51,7 @@ const CircuitoF1 = ({ mapView }) => {
           id: archivojson.id,
           name: archivojson.name,
           coordinates: [archivojson.lon, archivojson.lat],
+          location: archivojson.location,
         }));
 
         setCircuitosF1(circuitos);
@@ -141,41 +142,41 @@ const CircuitoF1 = ({ mapView }) => {
       });
     }
   };
-  const handleToggleAllCircuits = () => {
-    setShowAllCircuits(!showAllCircuits);
+  //
+  //     setShowAllCircuits(!showAllCircuits);
 
-    if (!mapView) return;
+  //     if (!mapView) return;
 
-    mapView.graphics.removeAll();
+  //     mapView.graphics.removeAll();
 
-    if (!showAllCircuits) {
-      listaTodosCircuitos.forEach((circuito) => {
-        const point = {
-          type: "point",
-          longitude: circuito.coordinates[0],
-          latitude: circuito.coordinates[1],
-        };
+  //     if (!showAllCircuits) {
+  //       listaTodosCircuitos.forEach((circuito) => {
+  //         const point = {
+  //           type: "point",
+  //           longitude: circuito.coordinates[0],
+  //           latitude: circuito.coordinates[1],
+  //         };
 
-        const symbol = {
-          type: "simple-marker",
-          color: "blue",
-          size: "12px",
-        };
+  //         const symbol = {
+  //           type: "simple-marker",
+  //           color: "blue",
+  //           size: "12px",
+  //         };
 
-        const graphic = new Graphic({ geometry: point, symbol });
+  //         const graphic = new Graphic({ geometry: point, symbol });
 
-        mapView.graphics.add(graphic);
-      });
+  //         mapView.graphics.add(graphic);
+  //       });
 
-      mapView.goTo({
-        target: listaTodosCircuitos.map((c) => ({
-          longitude: c.coordinates[0],
-          latitude: c.coordinates[1],
-        })),
-        zoom: 5,
-      });
-    }
-  };
+  //       mapView.goTo({
+  //         target: listaTodosCircuitos.map((c) => ({
+  //           longitude: c.coordinates[0],
+  //           latitude: c.coordinates[1],
+  //         })),
+  //         zoom: 5,
+  //       });
+  //     }
+  //   };
 
   return (
     <div>
@@ -188,7 +189,7 @@ const CircuitoF1 = ({ mapView }) => {
           <option value="">Seleccione un circuito</option>
           {circuitosF1.map((circuito) => (
             <option key={circuito.id} value={circuito.id}>
-              {circuito.name}
+              {circuito.location}
             </option>
           ))}
         </select>
