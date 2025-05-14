@@ -7,14 +7,17 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Registro from "./pages/Registro";
+import MiCuenta from "./components/MiCuenta";
+import Inicio from "./pages/Inicio";
 
 const App = () => {
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Inicio />} />
         <Route path="/signin" element={<Registro />} />
+        <Route path="/mi_cuenta" element={<MiCuenta />} />
       </Routes>
     </Router>
   );

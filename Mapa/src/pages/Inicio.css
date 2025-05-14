@@ -1,0 +1,42 @@
+.fondo {
+  background-color: #121212;
+  /* background-image: url("./public/f1.jpg"); */
+  /* O puedes quitar esta línea si usas <img> */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor {
+  background-color: rgba(30, 30, 30, 0.9);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.portada {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background-color: #e50914;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: #f40612;
+}
