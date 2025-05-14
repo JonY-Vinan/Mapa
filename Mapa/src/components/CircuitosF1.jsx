@@ -5,41 +5,41 @@ import GeoJSONLayer from "@arcgis/core/layers/GeoJSONLayer";
 const CircuitoF1 = ({ mapView }) => {
   const [circuitosF1, setCircuitosF1] = useState([]);
   const [listacp, setListacp] = useState([]);
-  const [listaTodosCircuitos, setListaTodosCircuitos] = useState([]);
+  // const [listaTodosCircuitos, setListaTodosCircuitos] = useState([]);
   const [selectedCircuit, setSelectedCircuit] = useState(null);
   const [selectedGeoJSON, setSelectedGeoJSON] = useState(null);
   const [showCircuit, setShowCircuit] = useState(false);
-  const [showAllCircuits, setShowAllCircuits] = useState(false);
+  // const [showAllCircuits, setShowAllCircuits] = useState(false);
   const [geoJsonLayer, setGeoJsonLayer] = useState(null); // Guardamos la capa GeoJSON
   const apiUrlJson =
     "https://raw.githubusercontent.com/bacinger/f1-circuits/master/championships/f1-locations-2025.json";
   const apiUrl =
     "https://api.github.com/repos/bacinger/f1-circuits/contents/circuits";
 
-  const apiUrlAllCircuits =
-    "https://github.com/bacinger/f1-circuits/blob/master/f1-locations.geojson";
+  // const apiUrlAllCircuits =
+  //   "https://github.com/bacinger/f1-circuits/blob/master/f1-locations.geojson";
 
-  useEffect(() => {
-    const obtenerTodosLosCircuitos = async () => {
-      try {
-        const response = await fetch(apiUrlAllCircuits);
-        const data = await response.json();
+  // useEffect(() => {
+  //   const obtenerTodosLosCircuitos = async () => {
+  //     try {
+  //       const response = await fetch(apiUrlAllCircuits);
+  //       const data = await response.json();
 
-        setListaTodosCircuitos(
-          data.features.map((feature) => ({
-            id: feature.properties.id,
-            name: feature.properties.name,
-            coordinates: feature.geometry.coordinates,
-            active: true,
-          }))
-        );
-      } catch (error) {
-        console.error("Error al obtener todos los circuitos:", error);
-      }
-    };
+  //       setListaTodosCircuitos(
+  //         data.features.map((feature) => ({
+  //           id: feature.properties.id,
+  //           name: feature.properties.name,
+  //           coordinates: feature.geometry.coordinates,
+  //           active: true,
+  //         }))
+  //       );
+  //     } catch (error) {
+  //       console.error("Error al obtener todos los circuitos:", error);
+  //     }
+  //   };
 
-    obtenerTodosLosCircuitos();
-  }, []);
+  //   obtenerTodosLosCircuitos();
+  // }, []);
 
   useEffect(() => {
     const obtenerArchivosJSON = async () => {
@@ -131,6 +131,17 @@ const CircuitoF1 = ({ mapView }) => {
       const layer = new GeoJSONLayer({
         url: selectedGeoJSON.url,
         opacity: 0.8,
+        renderer: {
+          type: "simple",
+          symbol: {
+            type: "simple-fill", // usa "simple-line" si son líneas
+            color: "rgba(66, 62, 62, 0)", // rojo semitransparente
+            outline: {
+              color: "rgba(66, 62, 62, 0.88)", // borde rojo
+              width: 3,
+            },
+          },
+        },
       });
 
       mapView.map.add(layer);
