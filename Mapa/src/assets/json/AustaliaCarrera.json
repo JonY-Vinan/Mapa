@@ -1,0 +1,184 @@
+{
+  "race_results": [
+    {
+      "pos": 1,
+      "no": 4,
+      "driver": "Lando Norris",
+      "team": "McLaren Mercedes",
+      "laps": 57,
+      "time": "1:42:06.304",
+      "pts": 25
+    },
+    {
+      "pos": 2,
+      "no": 1,
+      "driver": "Max Verstappen",
+      "team": "Red Bull Racing Honda RBPT",
+      "laps": 57,
+      "time": "+0,895 s",
+      "pts": 18
+    },
+    {
+      "pos": 3,
+      "no": 63,
+      "driver": "George Russell",
+      "team": "Mercedes",
+      "laps": 57,
+      "time": "+8.481s",
+      "pts": 15
+    },
+    {
+      "pos": 4,
+      "no": 12,
+      "driver": "Kimi Antonelli",
+      "team": "Mercedes",
+      "laps": 57,
+      "time": "+10.135s",
+      "pts": 12
+    },
+    {
+      "pos": 5,
+      "no": 23,
+      "driver": "Alejandro Albon",
+      "team": "Williams Mercedes",
+      "laps": 57,
+      "time": "+12.773s",
+      "pts": 10
+    },
+    {
+      "pos": 6,
+      "no": 18,
+      "driver": "Lance Stroll",
+      "team": "Aston Martin Aramco Mercedes",
+      "laps": 57,
+      "time": "+17.413s",
+      "pts": 8
+    },
+    {
+      "pos": 7,
+      "no": 27,
+      "driver": "Nico Hulkenberg",
+      "team": "Patada Sauber Ferrari",
+      "laps": 57,
+      "time": "+18.423s",
+      "pts": 6
+    },
+    {
+      "pos": 8,
+      "no": 16,
+      "driver": "Charles Leclerc",
+      "team": "Ferrari",
+      "laps": 57,
+      "time": "+19.826s",
+      "pts": 4
+    },
+    {
+      "pos": 9,
+      "no": 81,
+      "driver": "Óscar Piastri",
+      "team": "McLaren Mercedes",
+      "laps": 57,
+      "time": "+20.448s",
+      "pts": 2
+    },
+    {
+      "pos": 10,
+      "no": 44,
+      "driver": "Lewis Hamilton",
+      "team": "Ferrari",
+      "laps": 57,
+      "time": "+22.473s",
+      "pts": 1
+    },
+    {
+      "pos": 11,
+      "no": 10,
+      "driver": "Pierre Gasly",
+      "team": "Renault Alpino",
+      "laps": 57,
+      "time": "+26.502s",
+      "pts": 0
+    },
+    {
+      "pos": 12,
+      "no": 22,
+      "driver": "Yuki Tsunoda",
+      "team": "Racing Bulls Honda RBPT",
+      "laps": 57,
+      "time": "+29.884s",
+      "pts": 0
+    },
+    {
+      "pos": 13,
+      "no": 31,
+      "driver": "Esteban Ocón",
+      "team": "Haas Ferrari",
+      "laps": 57,
+      "time": "+33.161s",
+      "pts": 0
+    },
+    {
+      "pos": 14,
+      "no": 87,
+      "driver": "Oliver Bearman",
+      "team": "Haas Ferrari",
+      "laps": 57,
+      "time": "+40.351s",
+      "pts": 0
+    },
+    {
+      "pos": "NC",
+      "no": 30,
+      "driver": "Liam Lawson",
+      "team": "Red Bull Racing Honda RBPT",
+      "laps": 46,
+      "time": "DNF",
+      "pts": 0
+    },
+    {
+      "pos": "NC",
+      "no": 5,
+      "driver": "Gabriel Bortoleto",
+      "team": "Patada Sauber Ferrari",
+      "laps": 45,
+      "time": "DNF",
+      "pts": 0
+    },
+    {
+      "pos": "NC",
+      "no": 14,
+      "driver": "Fernando Alonso",
+      "team": "Aston Martin Aramco Mercedes",
+      "laps": 32,
+      "time": "DNF",
+      "pts": 0
+    },
+    {
+      "pos": "NC",
+      "no": 55,
+      "driver": "Carlos Sainz",
+      "team": "Williams Mercedes",
+      "laps": 0,
+      "time": "DNF",
+      "pts": 0
+    },
+    {
+      "pos": "NC",
+      "no": 7,
+      "driver": "Jack Doohan",
+      "team": "Renault Alpino",
+      "laps": 0,
+      "time": "DNF",
+      "pts": 0
+    },
+    {
+      "pos": "NC",
+      "no": 6,
+      "driver": "Isaac Hadjar",
+      "team": "Racing Bulls Honda RBPT",
+      "laps": 0,
+      "time": "DNS",
+      "pts": 0
+    }
+  ]
+}

@@ -5,10 +5,10 @@ import Home from "./Home.jsx";
 const Inicio = () => {
   return (
     <>
-      <div className="contenedor">
+      {/* <div className="contenedor" id="titulo">
         <h1>¡Bienvenido a la F1!</h1>
         <p>Explora las carreras y las noticias de la F1.</p>
-      </div>
+      </div> */}
       <div>
         <Home />
       </div>

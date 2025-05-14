@@ -52,7 +52,7 @@ const Capa = ({ setBaseMap, toggleLayer, mapView, mapSceneView }) => {
       {/* Overlay para cerrar el menú */}
       <div className={`overlay`} />
 
-      <div className={`sidenav ${isNavOpen ? "open" : ""}`}>
+      <div className={`sidenav ${isNavOpen ? "open" : ""}`} id="navegacion">
         <div className="basemap-list mt-8">
           <h4>
             <span className="icon mr-2">🧅</span>

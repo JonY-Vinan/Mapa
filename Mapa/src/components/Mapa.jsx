@@ -28,8 +28,8 @@ const Mapa = ({ setMapView, setMapSceneView, baseMap }) => {
     viewRef.current = new MapView({
       container: mapRef.current,
       map: new Map(mapConfig),
-      // center: [-2.92528, 43.26271],
-      zoom: 1,
+      center: [-2.92528, 43.26271],
+      zoom: 4,
     });
 
     view3DRef.current = new SceneView({
