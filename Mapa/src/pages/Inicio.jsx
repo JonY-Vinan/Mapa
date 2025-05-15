@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Inicio.css";
-// import portada from "/public/f1.jpg"; // Si prefieres usar <img>
 import Home from "./Home.jsx";
+import Portada from "./Portada.jsx";
+
 const Inicio = () => {
+  const [mostrarHome, setMostrarHome] = useState(false);
+  const [transitionComplete, setTransitionComplete] = useState(false);
+
+  const handleMostrarHome = () => {
+    setMostrarHome(true);
+    setTimeout(() => {
+      setTransitionComplete(true);
+    }, 1000); // Ajusta este tiempo según la duración de tu animación
+  };
+
   return (
-    <>
-      {/* <div className="contenedor" id="titulo">
-        <h1>¡Bienvenido a la F1!</h1>
-        <p>Explora las carreras y las noticias de la F1.</p>
-      </div> */}
-      <div>
-        <Home />
+    <div className="inicio-container">
+      <div
+        className={`portada-container ${mostrarHome ? "slide-out-left" : ""}`}
+      >
+        <Portada
+          handleMostrarHome={handleMostrarHome}
+          transitionComplete={transitionComplete}
+        />
       </div>
-    </>
+      <div className="home-container">{mostrarHome && <Home />}</div>
+    </div>
   );
 };
 

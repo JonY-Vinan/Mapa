@@ -54,10 +54,7 @@ const Capa = ({ setBaseMap, toggleLayer, mapView, mapSceneView }) => {
 
       <div className={`sidenav ${isNavOpen ? "open" : ""}`} id="navegacion">
         <div className="basemap-list mt-8">
-          <h4>
-            <span className="icon mr-2">🧅</span>
-            Circuitos de F1
-          </h4>
+          <h4>Circuitos de F1</h4>
           <CircuitoF1 mapView={mapView} mapSceneView={mapSceneView} />
           {/* <ServidorMap mapView={mapView} mapSceneView={mapSceneView} /> */}
         </div>

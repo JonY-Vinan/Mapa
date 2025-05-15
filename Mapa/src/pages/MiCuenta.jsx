@@ -43,6 +43,38 @@ const MiCuenta = () => {
             <p>{userData.favoriteDriver}</p>
           </div>
         </div>
+
+        {/* Contenedor del piloto favorito */}
+        <div className="col-md-3">
+          <div className="card p-4 shadow bg-success text-white">
+            <h4>Piloto Favorito</h4>
+            <p>{userData.favoriteDriver}</p>
+          </div>
+        </div>
+
+        {/* Contenedor del piloto favorito */}
+        <div className="col-md-3">
+          <div className="card p-4 shadow bg-success text-white">
+            <h4>Piloto Favorito</h4>
+            <p>{userData.favoriteDriver}</p>
+          </div>
+        </div>
+
+        {/* Contenedor del piloto favorito */}
+        <div className="col-md-3">
+          <div className="card p-4 shadow bg-success text-white">
+            <h4>Piloto Favorito</h4>
+            <p>{userData.favoriteDriver}</p>
+          </div>
+        </div>
+
+        {/* Contenedor del piloto favorito */}
+        <div className="col-md-3">
+          <div className="card p-4 shadow bg-success text-white">
+            <h4>Piloto Favorito</h4>
+            <p>{userData.favoriteDriver}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Registro from "./pages/Registro";
-import MiCuenta from "./components/MiCuenta";
+import MiCuenta from "./pages/MiCuenta";
 import Inicio from "./pages/Inicio";
 
 const App = () => {

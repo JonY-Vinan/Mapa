@@ -2,6 +2,7 @@
 
 https://images.squarespace-cdn.com/content/v1/68245ffd9f73984bc78ca002/1726020717.263177-INWPLQZMRDILFVLJQXJF/imgg-od3-fpkykgcr.png&quot
 
+api F1: https://api.openf1.org/v1/drivers?
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -47,3 +48,46 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+
+////CAPA html
+ <div>
+      <div>
+        <input
+          type="checkbox"
+          id="toggle-todos"
+          checked={mostrarTodos}
+          onChange={handleToggleTodos}
+        />
+        <label htmlFor="toggle-todos">Mostrar todos los circuitos</label>
+      </div>
+
+      <div>
+        <select onChange={(e) => handleSeleccionarCircuito(e.target.value)}>
+          <option value="">Seleccione un circuito</option>
+          {circuitosActivos.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.location}
+            </option>
+          ))}
+        </select>
+
+        {circuitoSeleccionado && (
+          <div>
+            <input
+              type="checkbox"
+              id="toggle-circuito"
+              checked={mostrarCircuito}
+              onChange={handleToggleCircuito}
+            />
+            <label htmlFor="toggle-circuito">
+              Mostrar circuito seleccionado
+            </label>
+          </div>
+        )}
+      </div>
+      <div>
+        <PosicionPilotos></PosicionPilotos>
+      </div>
+    </div>
