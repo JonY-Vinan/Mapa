@@ -1,52 +1,55 @@
-import React, { useEffect, useState, useRef } from "react";
-import Graphic from "@arcgis/core/Graphic";
+import React, { useEffect, useState } from "react";
 import GeoJSONLayer from "@arcgis/core/layers/GeoJSONLayer";
 import "./CountrySlider.css";
 
 const CountrySlider = ({ mapView, nameCircuito }) => {
-  const [circuitosActivos, setCircuitosActivos] = useState([]);
-  const [capasGeoJSON, setCapasGeoJSON] = useState([]);
-  const [todosLosCircuitos, setTodosLosCircuitos] = useState([]);
+  const [circuitos, setCircuitos] = useState([]);
   const [circuitoSeleccionado, setCircuitoSeleccionado] = useState(null);
+
+  const [geoJsonLayer, setGeoJsonLayer] = useState(null);
+  const [geoJsonData, setGeoJsonData] = useState([]);
+  const [geoJsonDataCircuito, setGeoJsonDataCircuito] = useState("");
   const [geoJsonSeleccionado, setGeoJsonSeleccionado] = useState(null);
-  const [mostrarTodos, setMostrarTodos] = useState(false);
+
   const [capaVisible, setCapaVisible] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const animationRef = useRef(null);
+
 
   const urlDatosCicuitos = "https://ergast.com/api/f1/2024/races.json";
-  const urlMapasCircuitosGeoJSON = "https://api.github.com/repos/bacinger/f1-circuits/contents/circuits";
-  // Cargar datos de circuitos
+  const urlMapasCircuitosGeoJSON =
+    "https://api.github.com/repos/bacinger/f1-circuits/contents/circuits";
+
   useEffect(() => {
     const cargarDatos = async () => {
       try {
-        // Cargar circuitos activos
-        const resActivos = await fetch(urlDatosCicuitos);
-        const dataActivos = await resActivos.json();
-        const circuitos = dataActivos.MRData.RaceTable.Races.map((c) => ({
-          id: c.round.toString(),
-          name: c.raceName,
-          circuitName: c.Circuit.circuitName,
+        // Cargar datos de los circuitos
+        const response = await fetch(urlDatosCicuitos);
+        const data = await response.json();
+        const circuitosData = data.MRData.RaceTable.Races.map((c) => ({
+          id: c.round,
+          nombre: c.raceName,
+          circuitoName: c.Circuit.circuitName,
           country: c.Circuit.Location.country,
-          location: c.Circuit.Location.locality,
-          coordinates: [
+          ubicacion: c.Circuit.Location.locality,
+          coordenadas: [
             parseFloat(c.Circuit.Location.long),
             parseFloat(c.Circuit.Location.lat),
           ],
         }));
-        setCircuitosActivos(circuitos);
 
-        // Cargar capas GeoJSON
-        const resGeoJSON = await fetch(urlRepoGeoJSON);
+        // Cargar archivos GeoJSON
+        const resGeoJSON = await fetch(urlMapasCircuitosGeoJSON);
         const dataGeoJSON = await resGeoJSON.json();
-        console.log(circuitos);
-        const activosIds = circuitos.map((c) => c.id);
-        setCapasGeoJSON(dataGeoJSON.filter((f) => f.name.endsWith(".geojson") && activosIds.includes(f.name.replace(".geojson", ""))).map((a) => ({
-          id: a.name.replace(".geojson", ""),
-          url: a.download_url,
-        }))
-        );
+
+        // Filtrar solo archivos GeoJSON y mapear con su URL
+        const geoJsonFiles = dataGeoJSON
+          .filter((file) => file.name.endsWith(".geojson"))
+          .map((file) => ({
+            name: file.name.replace(".geojson", ""),
+            url: file.download_url,
+          }));
+
+        setGeoJsonData(geoJsonFiles);
+        setCircuitos(circuitosData);
       } catch (error) {
         console.error("Error al cargar datos:", error);
       }
@@ -55,33 +58,77 @@ const CountrySlider = ({ mapView, nameCircuito }) => {
     cargarDatos();
   }, []);
 
-  // Manejar selección de circuito
-  const handleSeleccionarCircuito = async (id, index) => {
-    const circuito = circuitosActivos.find((c) => c.id === id);
-    const geo = capasGeoJSON.find((g) => g.id === id);
-
-    if (circuito && nameCircuito) {
-      nameCircuito(circuito.circuitName);
-      console.log("Circuito seleccionado: " + circuito.circuitName);
-    }
-
-    setCircuitoSeleccionado(circuito);
-    setGeoJsonSeleccionado(geo);
-    if (index !== undefined) setCurrentIndex(index);
-
-    if (circuito && mapView) {
-      try {
-        const [lon, lat] = circuito.coordinates;
-        await mapView.goTo({
-          center: [lon, lat],
-          zoom: 14
-        });
-        mapView.graphics.removeAll();
-      } catch (error) {
-        console.error("Error al mover el mapa:", error);
-      }
+  const buscarNombreCircuito = async (url) => {
+    try {
+      const resGeoJSON = await fetch(url);
+      const datosCircuitoGeoJSON = await resGeoJSON.json();
+      console.log(datosCircuitoGeoJSON);
+      const obteneNombreCircuito = datosCircuitoGeoJSON.features[0].properties.Name;
+      console.log(obteneNombreCircuito);
+      setGeoJsonDataCircuito(obteneNombreCircuito);
+    } catch (error) {
+      console.error("Error al cargar datos:", error);
     }
   };
+
+    // Manejar selección de circuito
+  const handleSeleccionarCircuito = async (circuito) => {
+  if (!mapView) return;
+
+  // Limpiar capa anterior
+  if (geoJsonLayer) {
+    mapView.map.remove(geoJsonLayer);
+  }
+
+  if (nameCircuito) {
+    nameCircuito(circuito.circuitoName);
+  }
+
+  // Centrar el mapa
+  await mapView.goTo({
+    center: circuito.coordenadas,
+    zoom: 14,
+  });
+
+  // Buscar el GeoJSON correspondiente al circuito
+  for (const geo of geoJsonData) {
+    try {
+      const res = await fetch(geo.url);
+      const geoJsonContent = await res.json();
+      const nombreCircuitoGeoJSON = geoJsonContent.features[0]?.properties?.Name;
+      
+      if (nombreCircuitoGeoJSON && nombreCircuitoGeoJSON.toLowerCase() === circuito.circuitoName.toLowerCase()) {
+        // Encontramos el GeoJSON correspondiente
+        const nuevaCapa = new GeoJSONLayer({
+          url: geo.url,
+          opacity: 0.8,
+          renderer: {
+            type: "simple",
+            symbol: {
+              type: "simple-fill",
+              color: "rgba(66, 62, 62, 0)",
+              outline: {
+                color: "rgba(66, 62, 62, 0.88)",
+                width: 3,
+              },
+            },
+          },
+        });
+
+        mapView.map.add(nuevaCapa);
+        setGeoJsonLayer(nuevaCapa);
+        setGeoJsonSeleccionado(geo);
+        setCircuitoSeleccionado(circuito);
+        return;
+      }
+    } catch (error) {
+      console.error("Error al cargar GeoJSON:", error);
+    }
+  }
+
+  console.warn(`No se encontró GeoJSON para el circuito: ${circuito.circuitoName}`);
+  setCircuitoSeleccionado(circuito);
+};
 
   // Mostrar circuito en el mapa
   useEffect(() => {
@@ -130,85 +177,27 @@ const CountrySlider = ({ mapView, nameCircuito }) => {
     };
   }, [geoJsonSeleccionado, mapView]);
 
-  // Carrusel automático
-  useEffect(() => {
-    if (circuitosActivos.length === 0 || isPaused) return;
-
-    animationRef.current = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % circuitosActivos.length;
-      setCurrentIndex(nextIndex);
-      const nextCircuit = circuitosActivos[nextIndex];
-      handleSeleccionarCircuito(nextCircuit.id, nextIndex);
-    }, 5000);
-
-    return () => clearInterval(animationRef.current);
-  }, [circuitosActivos, currentIndex, isPaused]);
-
-  const handleMouseEnter = () => {
-    setIsPaused(true);
-    clearInterval(animationRef.current);
-  };
-
-  const handleMouseLeave = () => {
-    setIsPaused(false);
-  };
-
-  // Duplicar circuitos para el efecto de scroll infinito
-  const duplicatedCircuits = [...circuitosActivos, ...circuitosActivos];
-
   return (
     <div className="carousel-container">
       <div className="carousel-header">
         <h3>Temporada 2025</h3>
-        <div className="toggle-container">
-          <input
-            type="checkbox"
-            id="toggle-todos"
-            checked={mostrarTodos}
-            onChange={() => setMostrarTodos(!mostrarTodos)}
-            className="toggle-input"
-          />
-          <label htmlFor="toggle-todos" className="toggle-label">
-            <span className="toggle-switch"></span>
-            <span>Mostrar todos</span>
-          </label>
-        </div>
       </div>
 
-      <div
-        className="circuits-carousel infinite-scroll"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+      <div className="circuits-carousel infinite    -scroll">
         <div className="scroll-track">
-          {duplicatedCircuits.map((c, index) => (
+          {[...circuitos, ...circuitos].map((circuito, index) => (
             <div
-              key={`${c.id}-${index}`}
-              className={`scroll-item ${circuitoSeleccionado?.id === c.id ? "active" : ""
-                }`}
-              onClick={() =>
-                handleSeleccionarCircuito(c.id, index % circuitosActivos.length)
-              }
+              key={`${circuito.id}-${index}`}
+              className={`scroll-item ${
+                circuitoSeleccionado?.id === circuito.id ? "active" : ""
+              }`}
+              onClick={() => handleSeleccionarCircuito(circuito)}
             >
-              <span className="circuit-location">{c.location}</span>
-              <span className="circuit-name">{c.name}</span>
+              <span className="circuit-location">{circuito.ubicacion}</span>
+              <span className="circuit-name">{circuito.circuitoName}</span>
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="carousel-controls">
-        {circuitosActivos.map((circuit, index) => (
-          <button
-            key={index}
-            className={`carousel-dot ${currentIndex === index ? "active" : ""}`}
-            onClick={() => {
-              setCurrentIndex(index);
-              handleSeleccionarCircuito(circuit.id, index);
-            }}
-            aria-label={`Mostrar ${circuit.name}`}
-          />
-        ))}
       </div>
     </div>
   );
