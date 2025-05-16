@@ -1,191 +1,224 @@
+/* Estilos generales */
 .capa-container {
-  position: relative;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-#navegacion {
-  /* position: fixed; */
+  position: absolute;
   top: 0;
-  left: -320px;
-  width: 280px;
-  height: 100vh;
-  background: white;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  z-index: 1000;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.navegacion.open {
   left: 0;
+  height: 100%;
+  z-index: 1;
+  font-family: "Segoe UI", Roboto, sans-serif;
 }
 
-.basemap-list h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e2e8f0;
-  display: flex;
-  align-items: center;
-}
-
-.basemap-item {
-  margin-bottom: 12px;
-  padding: 10px;
-  border-radius: 6px;
-  transition: all 0.2s;
-}
-
-.basemap-item:hover {
-  background-color: #f7fafc;
-}
-
-.basemap-item label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 0.95rem;
-  color: #4a5568;
-}
-
-.basemap-item input[type="radio"],
-.basemap-item input[type="checkbox"] {
-  margin-right: 12px;
-  accent-color: #4299e1;
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-
-.nav-toggle {
-  position: fixed;
+/* Botón de menú */
+.menu-toggle {
+  position: absolute;
   top: 20px;
   left: 20px;
-  width: 40px;
-  height: 40px;
-  background: #838181;
+  background: #e10600;
   border: none;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
-.nav-toggle:hover {
-  background: #4299e1;
+.menu-toggle:hover {
+  transform: scale(1.1);
+  background: #b80500;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Panel de navegación */
+.nav-panel {
+  position: absolute;
+  top: 0;
+  left: -350px;
+  width: 320px;
+  height: 100%;
+  background: white;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.nav-open .nav-panel {
+  transform: translateX(350px);
+}
+
+.nav-header {
+  padding: 20px;
+  background: #e10600;
   color: white;
-  transform: scale(1.05);
 }
 
-.nav-toggle:active {
-  transform: scale(0.95);
+.nav-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
 }
 
-.nav-toggle.open {
-  transform: rotate(90deg);
+.theme-switch {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.overlay {
-  position: fixed;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin: 0 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
 }
 
-.overlay.active {
-  opacity: 1;
-  pointer-events: all;
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
 }
 
-.icon {
-  font-size: 1rem;
+input:checked + .slider {
+  background-color: #333;
 }
 
-.mt-8 {
-  margin-top: 2rem;
+input:checked + .slider:before {
+  transform: translateX(26px);
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-/* Estilos para el componente ServidorMap */
-.servidor-map-container {
-  margin-top: 20px;
-}
-
-.selectors-container {
+/* Pestañas */
+.tabs {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
 }
 
-.selectors-container select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #616060;
-}
-
-.show-button {
-  padding: 8px 16px;
-  background-color: #4299e1;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.show-button:hover {
-  background-color: #3182ce;
-}
-
-.show-button:disabled {
-  background-color: #a0aec0;
-  cursor: not-allowed;
-}
-
-.municipio-info {
-  margin-top: 20px;
+.tab {
+  flex: 1;
   padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 6px;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.municipio-info h3 {
+.tab.active {
+  background: #f5f5f5;
+  color: #e10600;
+  font-weight: 600;
+}
+
+.tab:hover:not(.active) {
+  background: #f9f9f9;
+}
+
+/* Contenido de pestañas */
+.tab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.basemaps-tab h3 {
   margin-top: 0;
-  color: #2d3748;
+  color: #555;
 }
 
-.municipio-info table {
-  width: 100%;
-  border-collapse: collapse;
+.basemap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
-.municipio-info th,
-.municipio-info td {
-  padding: 8px 12px;
-  border: 1px solid #e2e8f0;
+.basemap-btn {
+  padding: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
   text-align: left;
 }
 
-.municipio-info th {
-  background-color: #edf2f7;
-  font-weight: 600;
+.basemap-btn:hover {
+  border-color: #e10600;
+  color: #e10600;
+}
+
+/* Pie de página */
+.nav-footer {
+  padding: 15px;
+  text-align: center;
+  background: #f5f5f5;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-panel {
+    width: 280px;
+    left: -280px;
+  }
+
+  .nav-open .nav-panel {
+    transform: translateX(280px);
+  }
 }

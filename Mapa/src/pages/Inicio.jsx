@@ -1,32 +1,39 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Inicio.css";
-import Home from "./Home.jsx";
-import Portada from "./Portada.jsx";
+// import Header from "../components/Header/Header";
+import CountrySlider from "../components/CountrySlider/CountrySlider";
+import CircuitMap from "../components/CircuitMap/CircuitMap";
+import SideInfo from "../components/SideInfo/SideInfo";
+import F1Data from "../components/F1Data/F1Data";
 
-const Inicio = () => {
-  const [mostrarHome, setMostrarHome] = useState(false);
-  const [transitionComplete, setTransitionComplete] = useState(false);
-
-  const handleMostrarHome = () => {
-    setMostrarHome(true);
-    setTimeout(() => {
-      setTransitionComplete(true);
-    }, 1000); // Ajusta este tiempo según la duración de tu animación
-  };
+function Inicio() {
+  const [mapView, setMapView] = useState(null);
+  const [mapSceneView, setMapSceneView] = useState(null);
+  const [circuitName, setCircuitName] = useState(""); //Base map
+  // const [baseMap, setBaseMap] = useState({ basemap: "gray-vector" });
 
   return (
-    <div className="inicio-container">
-      <div
-        className={`portada-container ${mostrarHome ? "slide-out-left" : ""}`}
-      >
-        <Portada
-          handleMostrarHome={handleMostrarHome}
-          transitionComplete={transitionComplete}
-        />
-      </div>
-      <div className="home-container">{mostrarHome && <Home />}</div>
+    <div className="f1-app">
+      {/* <Header /> */}
+      <CountrySlider mapView={mapView} nameCircuito={setCircuitName} />
+
+      <main className="main-content">
+        <div className="map-container">
+          <CircuitMap
+            setMapView={setMapView}
+            setMapSceneView={setMapSceneView}
+            nameCircuito={circuitName}
+            // baseMap={selectedBasemap}
+          />
+        </div>
+        <div className="info-container">
+          <SideInfo />
+        </div>
+      </main>
+
+      <F1Data />
     </div>
   );
-};
+}
 
 export default Inicio;
