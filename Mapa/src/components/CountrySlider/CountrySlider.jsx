@@ -75,6 +75,7 @@ const CountrySlider = ({ mapView, nameCircuito }) => {
   const handleSeleccionarCircuito = async (circuito) => {
   if (!mapView) return;
 
+  
   // Limpiar capa anterior
   if (geoJsonLayer) {
     mapView.map.remove(geoJsonLayer);
