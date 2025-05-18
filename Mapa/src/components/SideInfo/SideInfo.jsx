@@ -1,24 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SideInfo.css";
 import WeatherInfo from "./WeatherInfo";
 import ResultRacer from "./ResultRacer";
-import ScheduleRacer from "./ScheduleRacer";
-const SideInfo = ({ idCircuito, team_name }) => {
+import PointsConstructors from "../F1Data/PointsConstructors";
+import PointsDrivers from "../F1Data/PointsDrivers";
+
+const SideInfo = ({ idCircuito, team_name, onDriverSelect }) => {
+  const [activeTab, setActiveTab] = useState('results');
+
   return (
     <div className="side-info">
-      <div id="parte1">
-        {/* Horarios */}
-        <ScheduleRacer idCircuito={idCircuito} /> {/* Clima */}
-        {/* <WeatherInfo lat={lat} long={long} /> */}
-      </div>
+      <nav className="navbar-selector">
+        <div className="nav-container">
+          <button 
+            className={`nav-item ${activeTab === 'results' ? 'active' : ''}`}
+            onClick={() => setActiveTab('results')}
+          >
+            <span className="nav-icon">🏁</span>
+            <span className="nav-text">Resultados</span>
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'pilotos' ? 'active' : ''}`}
+            onClick={() => setActiveTab('pilotos')}
+          >
+            <span className="nav-icon">👤</span>
+            <span className="nav-text">Puntos Pilotos</span>
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'contructores' ? 'active' : ''}`}
+            onClick={() => setActiveTab('contructores')}
+          >
+            <span className="nav-icon">🏎️</span>
+            <span className="nav-text">Puntos Constructores</span>
+          </button>
+        </div>
+      </nav>
 
-      {/* Pilotos */}
-      <div>
-        <ResultRacer idCircuito={idCircuito} team_name={team_name} />
+      <div className="tab-content">
+        {activeTab === 'results' && (
+          <div>
+            <ResultRacer 
+              idCircuito={idCircuito} 
+              onDriverClick={onDriverSelect}
+            />
+          </div>
+        )}
+        {activeTab === 'pilotos' && (
+          <div>
+            <PointsDrivers idCircuito={idCircuito} />
+          </div>
+        )}
+        {activeTab === 'contructores' && (
+          <div>
+            <PointsConstructors idCircuito={idCircuito} />
+          </div>
+        )}
       </div>
-
-      {/* Circuito */}
-      <div>{/* <CircuitsInfo /> */}</div>
     </div>
   );
 };

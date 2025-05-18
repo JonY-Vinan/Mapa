@@ -1,44 +1,51 @@
 import { useState } from "react";
 import "./Inicio.css";
-// import Header from "../components/Header/Header";
 import CountrySlider from "../components/CountrySlider/CountrySlider";
 import CircuitMap from "../components/CircuitMap/CircuitMap";
 import SideInfo from "../components/SideInfo/SideInfo";
-import F1Data from "../components/F1Data/F1Data";
+import CarsData from "../components/F1Data/CarsData";
 
 function Inicio() {
   const [mapView, setMapView] = useState(null);
   const [mapSceneView, setMapSceneView] = useState(null);
-  const [circuitName, setCircuitName] = useState(""); //Base map
-
+  const [circuitName, setCircuitName] = useState("");
   const [idCircuito, setIdCircuito] = useState("");
   const [lat, setLat] = useState("");
   const [long, setLong] = useState(""); 
-  const [team_name, setTeam_name] = useState("");
-  // const [baseMap, setBaseMap] = useState({ basemap: "gray-vector" });
+  const [piloto_name, setPiloto_name] = useState("");
+
+  const handleDriverSelect = (driverName) => {
+    setPiloto_name(driverName);
+  };
 
   return (
     <div className="f1-app">
-      {/* <Header /> */}
-      <CountrySlider mapView={mapView} circuitName={setCircuitName} 
-      idCircuito={setIdCircuito} />
+      <CountrySlider 
+        mapView={mapView} 
+        circuitName={setCircuitName} 
+        idCircuito={setIdCircuito} 
+      />
 
       <main className="main-content">
-        <div className="map-container"  style={{ height: "60vh", width: "50%" }}>
+        <div className="info-car">
+          <CarsData piloto_name={piloto_name}/>
+        </div>
+        <div className="map-container" style={{ height: "60vh", width: "50%" }}>
           <CircuitMap
             setMapView={setMapView}
             setMapSceneView={setMapSceneView}
             nameCircuito={circuitName}
-            lat={setLat} long={setLong}
-            // baseMap={selectedBasemap}
+            lat={setLat} 
+            long={setLong}
           />
         </div>
         <div className="info-container">
-          <SideInfo idCircuito={idCircuito} team_name={setTeam_name}/>
+          <SideInfo 
+            idCircuito={idCircuito} 
+            onDriverSelect={handleDriverSelect}
+          />
         </div>
       </main>
-
-      <F1Data idCircuito={setIdCircuito} team_name={team_name}/>
     </div>
   );
 }

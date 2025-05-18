@@ -11,13 +11,13 @@ const F1Data = ({ idCircuito, team_name }) => {
       <div>
         <CarsData team_name={team_name}/>
       </div>
-      <div>
+      {/* <div>
         <PointsDrivers  idCircuito={idCircuito}/>
       </div>
       
       <div>
         <PoinstConstructors />
-      </div>
+      </div> */}
       
     </section>
   );
