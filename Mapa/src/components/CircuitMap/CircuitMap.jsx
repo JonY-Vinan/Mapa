@@ -4,7 +4,7 @@ import MapView from "@arcgis/core/views/MapView";
 import SceneView from "@arcgis/core/views/SceneView";
 import Home from "@arcgis/core/widgets/Home";
 import "./CircuitMap.css";
-import WeatherInfo from "../SideInfo/WeatherInfo";
+// import WeatherInfo from "../SideInfo/WeatherInfo";
 
 const CircuitMap = ({
   setMapView,
@@ -108,7 +108,7 @@ const CircuitMap = ({
       </div>
 
       <div className="card-footer bg-dark text-light p-2">
-        <WeatherInfo lat={lat} lng={lng} />
+        {/* <WeatherInfo lat={lat} lng={lng} /> */}
       </div>
     </div>
   );

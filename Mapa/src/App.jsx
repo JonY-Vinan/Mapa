@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
@@ -11,13 +11,16 @@ import Inicio from "./pages/Inicio";
 // import InicioPrueba from "./pages/InicioPrueba";
 
 const App = () => {
+
+  const [usuarios, setUsuarios] = useState([]);
+  
   return (
     <Router>
       <NavBar />
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/signin" element={<Registro />} />
-        <Route path="/mi_cuenta" element={<MiCuenta />} />
+        <Route path="/signin" element={<Registro  usuarios={setUsuarios} />} />
+        <Route path="/mi_cuenta" element={<MiCuenta usuarios={usuarios}/>} />
       </Routes>
     </Router>
   );

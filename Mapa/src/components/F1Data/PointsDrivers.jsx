@@ -20,7 +20,6 @@ const PointsDrivers = ({ idCircuito }) => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        console.log(data);
         // Asegúrate de mapear correctamente los datos de la API
         const driversData =
           data.MRData.StandingsTable.StandingsLists[0].DriverStandings?.map(
@@ -31,7 +30,6 @@ const PointsDrivers = ({ idCircuito }) => {
               points: result.points,
             })
           );
-        console.log(driversData);
         setDrivers(driversData || []);
       } catch (error) {
         console.error("Error al cargar posiciones:", error);
@@ -45,7 +43,7 @@ const PointsDrivers = ({ idCircuito }) => {
     <div className="data-card drivers-table">
       <h6>Puntos de Pilotos</h6>
 
-      <table>
+      {/* <table>
         <thead>
           <tr>
             <th>Piloto</th>
@@ -54,15 +52,15 @@ const PointsDrivers = ({ idCircuito }) => {
         </thead>
         <div>
           <tbody>
-            {drivers.map((driver, index) => (
+           
               <tr key={index}>
                 <td>{driver.full_name}</td>
                 <td>{driver.points}</td>
               </tr>
-            ))};
+          
           </tbody>
         </div>
-      </table>
+      </table> */}
     </div>
   );
 };

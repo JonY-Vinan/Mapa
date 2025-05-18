@@ -21,7 +21,6 @@ const ResultRacer = ({ idCircuito }) => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        console.log(data);
         // Asegúrate de mapear correctamente los datos de la API
         const driversData = data.MRData.RaceTable.Races[0]?.Results.map(
           (result) => ({

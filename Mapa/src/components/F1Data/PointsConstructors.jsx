@@ -21,7 +21,6 @@ useEffect(() => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        console.log(data);
         // Asegúrate de mapear correctamente los datos de la API
         const driversData = data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings?.map(
           (result) => ({ 
@@ -31,7 +30,6 @@ useEffect(() => {
             points: result.points,
           })
         );
-         console.log(driversData);
         setConstructors(driversData || []);
       } catch (error) {
         console.error("Error al cargar posiciones:", error);
