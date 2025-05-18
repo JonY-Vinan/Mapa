@@ -15,6 +15,37 @@ const MiCuenta = () => {
     location: "Madrid, España"
   });
 
+  const [drivers, setDrivers] = useState([]);
+
+   const API_PILOTO = `https://http://ergast.com/api/f1/drivers/alonso.json`;
+  
+    useEffect(() => {
+      const cargarPosiciones = async () => {
+        try {
+          const response = await fetch(API_PILOTO);
+          const data = await response.json();
+          const driversData = data.MRData.RaceTable.Races[0]?.Results.map(
+            (result) => ({
+              id: result.Driver.driverId,
+              full_name: `${result.Driver.givenName} ${result.Driver.familyName}`,
+              team_name: result.Constructor.name,
+              position: result.position,
+              points: result.points,
+              code: result.Driver.code,
+              number: result.Driver.permanentNumber,
+              nacinalidad: result.Driver.nationality,
+            })
+          );
+          console.log(driversData);
+          setDrivers(driversData || []);
+        } catch (error) {
+          console.error("Error al cargar posiciones:", error);
+        }
+      };
+  
+      cargarPosiciones();
+    }, [API_PILOTO]);
+
   // Cargar datos del usuario al montar el componente
   useEffect(() => {
     if (location.state) {

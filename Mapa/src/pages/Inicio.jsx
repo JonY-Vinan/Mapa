@@ -13,7 +13,6 @@ function Inicio() {
   const [lat, setLat] = useState("");
   const [long, setLong] = useState(""); 
   const [piloto_name, setPiloto_name] = useState("");
-
   const handleDriverSelect = (driverName) => {
     setPiloto_name(driverName);
   };
@@ -34,14 +33,14 @@ function Inicio() {
           <CircuitMap
             setMapView={setMapView}
             setMapSceneView={setMapSceneView}
-            nameCircuito={circuitName}
+             nameCircuito={circuitName}
             lat={setLat} 
             long={setLong}
           />
         </div>
         <div className="info-container">
           <SideInfo 
-            idCircuito={idCircuito} 
+            idCircuito={idCircuito} lat={lat} long={long}
             onDriverSelect={handleDriverSelect}
           />
         </div>

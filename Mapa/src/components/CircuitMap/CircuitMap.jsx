@@ -11,8 +11,7 @@ const CircuitMap = ({
   setMapSceneView,
   nameCircuito,
   baseMap,
-  lat,
-  lng,
+  
 }) => {
   const mapRef = useRef(null);
   const mapRef3D = useRef(null);
@@ -108,8 +107,8 @@ const CircuitMap = ({
       </div>
 
       <div className="card-footer bg-dark text-light p-2">
-        <WeatherInfo lat={lat} lng={lng} />
-        <ScheduleRacer idCircuito={nameCircuito} />
+     
+       
       </div>
     </div>
   );

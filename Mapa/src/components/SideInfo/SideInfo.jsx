@@ -4,12 +4,15 @@ import WeatherInfo from "./WeatherInfo";
 import ResultRacer from "./ResultRacer";
 import PointsConstructors from "../F1Data/PointsConstructors";
 import PointsDrivers from "../F1Data/PointsDrivers";
+import ScheduleRacer from "./ScheduleRacer";
 
-const SideInfo = ({ idCircuito, team_name, onDriverSelect }) => {
+const SideInfo = ({ idCircuito, onDriverSelect, lat,
+  lng }) => {
   const [activeTab, setActiveTab] = useState('results');
 
   return (
     <div className="side-info">
+      <ScheduleRacer idCircuito={idCircuito} />
       <nav className="navbar-selector">
         <div className="nav-container">
           <button 
@@ -55,6 +58,10 @@ const SideInfo = ({ idCircuito, team_name, onDriverSelect }) => {
             <PointsConstructors idCircuito={idCircuito} />
           </div>
         )}
+      </div>
+
+      <div>
+           <WeatherInfo lat={lat} lng={lng} />
       </div>
     </div>
   );
