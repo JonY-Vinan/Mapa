@@ -1,20 +1,34 @@
 // MiCuenta.jsx (Opción Tarjetas Interactivas)
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "./MiCuenta.css";
 
 const MiCuenta = () => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('profile');
-  
-  const userData = location.state || {
+  const [userData, setUserData] = useState({
     username: "Usuario",
     email: "correo@example.com",
     f1Team: "Red Bull",
     favoriteDriver: "Max Verstappen",
     joinDate: "Enero 2020",
     location: "Madrid, España"
-  };
+  });
+
+  // Cargar datos del usuario al montar el componente
+  useEffect(() => {
+    if (location.state) {
+      setUserData(location.state);
+      // Guardar en localStorage para persistencia
+      localStorage.setItem('usuarioActual', JSON.stringify(location.state));
+    } else {
+      // Intentar cargar desde localStorage si no hay state
+      const usuarioGuardado = localStorage.getItem('usuarioActual');
+      if (usuarioGuardado) {
+        setUserData(JSON.parse(usuarioGuardado));
+      }
+    }
+  }, [location.state]);
 
   const teamStats = {
     position: 1,
@@ -150,7 +164,6 @@ const MiCuenta = () => {
         <p>Bienvenido a tu centro de control personalizado</p>
       </header>
 
-     
       <div className="tabs-container">
         <button 
           className={`tab-btn ${activeTab === 'profile' ? 'active' : ''}`}
@@ -182,7 +195,7 @@ const MiCuenta = () => {
         {renderTabContent()}
       </main>
 
-       <h3 className="mt-5">Próximas Carreras</h3>
+      <h3 className="mt-5">Próximas Carreras</h3>
       <div id="raceCarousel" className="carousel slide mb-5" data-bs-ride="carousel">
         <div className="carousel-inner">
           {nextRaces.map((race, idx) => (
@@ -201,8 +214,6 @@ const MiCuenta = () => {
           <span className="carousel-control-next-icon"></span>
         </button>
       </div>
-
-      
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Registro.css";
+
 const F1_TEAMS = {
   Mercedes: ["Lewis Hamilton", "George Russell"],
   RedBull: ["Max Verstappen", "Sergio Pérez"],
@@ -10,7 +11,7 @@ const F1_TEAMS = {
   Alpine: ["Esteban Ocon", "Pierre Gasly"],
 };
 
-const Registro = () => {
+const Registro = ({ agregarUsuario }) => {
   const [formData, setFormData] = useState({
     nombre: "",
     apellidos: "",
@@ -26,7 +27,6 @@ const Registro = () => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Limpiar el piloto si se cambia el equipo
     if (name === "f1Team") {
       setFormData((prev) => ({ ...prev, favoriteDriver: "" }));
     }
@@ -34,10 +34,27 @@ const Registro = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Formulario enviado:", formData);
-    navigate("/mi_cuenta");
-  };
+    
+    // Crear objeto de usuario
+    const nuevoUsuario = {
+      username: `${formData.nombre} ${formData.apellidos}`,
+      email: formData.email,
+      f1Team: formData.f1Team,
+      favoriteDriver: formData.favoriteDriver,
+      joinDate: new Date().toLocaleDateString('es-ES', { month: 'long', year: 'numeric' }),
+      location: "Madrid, España" // Puedes agregar un campo para esto en el formulario si lo deseas
+    };
 
+    // Agregar usuario al estado global
+    agregarUsuario(nuevoUsuario);
+
+    // Guardar usuario actual en localStorage para la sesión
+    localStorage.setItem('usuarioActual', JSON.stringify(nuevoUsuario));
+
+    // Redirigir a MiCuenta
+    navigate("/mi_cuenta", { state: nuevoUsuario });
+  };
+  
  return (
     <div className="registro-container">
         <div className="registro-wrapper">
