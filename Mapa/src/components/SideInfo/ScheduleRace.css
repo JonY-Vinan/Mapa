@@ -1,0 +1,117 @@
+/* Schedule Card Styles */
+.schedule-card {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  margin: 0 auto;
+}
+
+.schedule-card-header {
+  background: linear-gradient(135deg, #e10600 0%, #7a0000 100%);
+  color: white;
+  /* padding: 16px; */
+  text-align: center;
+}
+
+.schedule-card-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.schedule-country {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* .schedule-card-body {
+  /* padding: 12px 0; 
+} */
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-date {
+  width: 60px;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.schedule-session {
+  flex: 1;
+  padding: 0 12px;
+}
+
+.session-name {
+  display: block;
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.session-time {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.schedule-duration {
+  width: 60px;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.highlight {
+  background-color: #fff8f8;
+}
+
+.highlight .schedule-date {
+  color: #e10600;
+  font-weight: 700;
+}
+
+.highlight .session-name {
+  color: #e10600;
+  font-weight: 600;
+}
+
+.highlight .session-time {
+  color: #e10600;
+}
+
+.schedule-loading,
+.schedule-error {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.schedule-error {
+  color: #e10600;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .schedule-card {
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #eee;
+  }
+}

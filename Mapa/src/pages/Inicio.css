@@ -21,10 +21,6 @@
   padding: 20px;
 }
 
-.map-container {
-  flex: 2;
-}
-
 .info-container {
   flex: 1;
 }

@@ -1,31 +1,20 @@
 import React from "react";
 import "./SideInfo.css";
 import WeatherInfo from "./WeatherInfo";
-import PitStop from "./PitStop";
-
-const SideInfo = () => {
+import ResultRacer from "./ResultRacer";
+import ScheduleRacer from "./ScheduleRacer";
+const SideInfo = ({ idCircuito, team_name }) => {
   return (
     <div className="side-info">
-      {/* Clima */}
-      <div>
-        <WeatherInfo />
+      <div id="parte1">
+        {/* Horarios */}
+        <ScheduleRacer idCircuito={idCircuito} /> {/* Clima */}
+        {/* <WeatherInfo lat={lat} long={long} /> */}
       </div>
-      {/* <section className="weather-info">
-        <h2>Pronóstico del Clima</h2>
-        {weather ? (
-          <p>
-            {weather.temp}°C - {weather.condition}
-          </p>
-        ) : (
-          <p>Cargando clima...</p>
-        )}
-      </section> */}
-
-      {/* Horarios */}
 
       {/* Pilotos */}
       <div>
-        <PitStop />
+        <ResultRacer idCircuito={idCircuito} team_name={team_name} />
       </div>
 
       {/* Circuito */}

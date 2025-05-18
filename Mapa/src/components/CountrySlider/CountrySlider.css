@@ -1,18 +1,4 @@
-.carousel-container {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  margin: 10px;
-  max-width: 100%;
-}
-
-.carousel-header h3 {
-  margin: 0 0 15px 0;
-  color: #e10600;
-  font-size: 1.2rem;
-}
-
+/* CountrySlider.css */
 .circuits-carousel.infinite-scroll {
   overflow: hidden;
   white-space: nowrap;
@@ -25,8 +11,7 @@
 .scroll-track {
   display: inline-block;
   white-space: nowrap;
-  animation: scroll-left 40s linear infinite;
-  padding: 15px 0;
+  animation: scroll-left 120s linear infinite;
 }
 
 .scroll-track:hover {
@@ -34,26 +19,21 @@
 }
 
 .scroll-item {
-  display: inline-flex;
-  flex-direction: column;
   padding: 0 30px;
-  font-size: 16px;
-  color: #333;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
   border-right: 1px solid #eee;
   height: 50px;
-  justify-content: center;
 }
 
 .scroll-item:hover {
-  color: #e10600;
+  color: #e10600 !important;
   transform: scale(1.05);
 }
 
 .scroll-item.active {
-  color: #e10600;
+  color: #e10600 !important;
   font-weight: bold;
   position: relative;
 }
@@ -67,16 +47,6 @@
   width: 20px;
   height: 3px;
   background: #e10600;
-}
-
-.circuit-location {
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.circuit-name {
-  font-size: 0.9em;
-  opacity: 0.8;
 }
 
 @keyframes scroll-left {

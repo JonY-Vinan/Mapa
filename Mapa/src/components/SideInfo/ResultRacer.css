@@ -1,0 +1,140 @@
+/* ResultRacer.css */
+.drivers {
+  width: 100%;
+  max-width: 600px;
+  /* margin: 2rem auto; */
+  padding: 1rem;
+  font-family: 'Arial', sans-serif;
+  margin: 0px auto;
+      
+}
+
+.drivers h2 {
+  text-align: center;
+  color: #e10600; /* Rojo característico de F1 */
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.drivers h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: #e10600;
+}
+
+.drivers-grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow : hidden;
+    height:350px;
+}
+
+.driver-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 4px solid #e10600;
+}
+
+.driver-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.driver-card h5 {
+  color: #333;
+  /* margin-bottom: 1rem; */
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  
+}
+h5{
+  line-height: 0.2;
+}
+
+.driver-card h5::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #e10600;
+  color: white;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 20px;
+}
+
+/* Numeración de posición */
+.driver-card:nth-child(1) h5::before { content: '1'; background-color: #ffd700; } /* Oro */
+.driver-card:nth-child(2) h5::before { content: '2'; background-color: #c0c0c0; } /* Plata */
+.driver-card:nth-child(3) h5::before { content: '3'; background-color: #cd7f32; } /* Bronce */
+.driver-card:nth-child(4) h5::before { content: '4'; background-color: #5e5e5e; }
+.driver-card:nth-child(5) h5::before { content: '5'; background-color: #5e5e5e; }
+.driver-card:nth-child(6) h5::before { content: '6'; background-color: #5e5e5e; }
+.driver-card:nth-child(7) h5::before { content: '7'; background-color: #5e5e5e; }
+.driver-card:nth-child(8) h5::before { content: '8'; background-color: #5e5e5e; }
+.driver-card:nth-child(9) h5::before { content: '9'; background-color: #5e5e5e; }
+.driver-card:nth-child(10) h5::before { content: '10'; background-color: #5e5e5e; }
+.driver-card:nth-child(11) h5::before { content: '11'; background-color: #5e5e5e; }
+.driver-card:nth-child(12) h5::before { content: '12'; background-color: #5e5e5e; }
+.driver-card:nth-child(13) h5::before { content: '13'; background-color: #5e5e5e; }
+.driver-card:nth-child(14) h5::before { content: '14'; background-color: #5e5e5e; }
+.driver-card:nth-child(15) h5::before { content: '15'; background-color: #5e5e5e; }
+.driver-card:nth-child(16) h5::before { content: '16'; background-color: #5e5e5e; }
+.driver-card:nth-child(17) h5::before { content: '17'; background-color: #5e5e5e; }
+.driver-card:nth-child(18) h5::before { content: '18'; background-color: #5e5e5e; }
+.driver-card:nth-child(19) h5::before { content: '19'; background-color: #5e5e5e; }
+.driver-card:nth-child(20) h5::before { content: '20'; background-color: #5e5e5e; }
+.driver-card:nth-child(21) h5::before { content: '21'; background-color: #5e5e5e; }
+.driver-card:nth-child(22) h5::before { content: '22'; background-color: #5e5e5e; }
+
+
+.driver-card p {
+  color: #666;
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.driver-card p:last-child {
+  font-weight: bold;
+  color: #e10600;
+}
+
+/* Loading state */
+.drivers > p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .drivers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .driver-card {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .drivers h2 {
+    font-size: 1.5rem;
+  }
+}

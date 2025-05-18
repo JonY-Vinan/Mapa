@@ -1,0 +1,23 @@
+.car-data {
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-specs {
+  margin-bottom: 20px;
+}
+
+.car-specs p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.car-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+}

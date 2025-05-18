@@ -4,12 +4,15 @@ import MapView from "@arcgis/core/views/MapView";
 import SceneView from "@arcgis/core/views/SceneView";
 import Home from "@arcgis/core/widgets/Home";
 import "./CircuitMap.css";
+import WeatherInfo from "../SideInfo/WeatherInfo";
 
 const CircuitMap = ({
   setMapView,
   setMapSceneView,
-  nameCircuito, // Ahora recibimos directamente el nombre
+  nameCircuito,
   baseMap,
+  lat,
+  lng,
 }) => {
   const mapRef = useRef(null);
   const mapRef3D = useRef(null);
@@ -70,54 +73,42 @@ const CircuitMap = ({
   }, [is3DView]);
 
   return (
-    <div className="circuit-map-container">
-      <div className="map-header">
-        <div className="map-title">
+    <div className="card shadow-sm h-100">
+      <div className="card-header bg-danger text-white d-flex justify-content-between align-items-center p-2">
+        <div className="d-flex align-items-center gap-3">
           <img
             src="/bandera.png"
-            alt="Bandera de España"
-            className="country-flag"
+            alt="Bandera del país"
+            className="country-flag rounded"
+            style={{ width: "50px", height: "30px", objectFit: "cover" }}
           />
-          <div className="title-content">
-            <h1>{nameCircuito || "Selecciona un circuito"}</h1>
-          </div>
+          <h5 className="m-0">{nameCircuito || "Selecciona un circuito"}</h5>
         </div>
 
-        <div className="map-controls">
-          <button
-            onClick={toggleView}
-            className={`view-toggle ${is3DView ? "active" : ""}`}
-            aria-label="Cambiar vista 2D/3D"
-          >
-            {is3DView ? "2D" : "3D"}
-          </button>
-        </div>
+        <button
+          onClick={toggleView}
+          className={`btn btn-sm ${is3DView ? "btn-light text-danger" : "btn-outline-light"}`}
+          aria-label="Cambiar vista 2D/3D"
+        >
+          {is3DView ? "2D" : "3D"}
+        </button>
       </div>
-
-      <div className="map-wrapper">
+     
+      <div className="map-wrapper" style={{ height: "45vh", backgroundColor: "#f5f5f5" }}>
         <div
           ref={mapRef}
-          className={`map-view ${is3DView ? "hidden" : ""}`}
+          className={`w-100 h-100 ${is3DView ? "d-none" : ""}`}
           aria-hidden={is3DView}
         />
         <div
           ref={mapRef3D}
-          className={`scene-view ${!is3DView ? "hidden" : ""}`}
+          className={`w-100 h-100 ${!is3DView ? "d-none" : ""}`}
           aria-hidden={!is3DView}
         />
       </div>
 
-      <div className="map-status-bar">
-        <div className="coordinates-display">
-          <span>Lat: 43.26271</span>
-          <span>Lon: -2.92528</span>
-          <span>
-            Zoom: {is3DView ? view3DRef.current?.zoom : viewRef.current?.zoom}
-          </span>
-        </div>
-        <div className="basemap-info">
-          Mapa base: {baseMap?.title || "Predeterminado"}
-        </div>
+      <div className="card-footer bg-dark text-light p-2">
+        <WeatherInfo lat={lat} lng={lng} />
       </div>
     </div>
   );
