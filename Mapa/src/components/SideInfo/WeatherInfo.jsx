@@ -50,7 +50,7 @@ const WeatherInfo = ({ lat, lng }) => {
         {weather ? (
           <div className="d-flex justify-content-between align-items-center">
             <div className="d-flex align-items-center">
-              <span className="display-6 me-3">{weather.days[0].temp}°</span>
+              {/* <span className="display-6 me-3">{weather.days[0].temp}°</span> */}
               <div className="d-flex flex-column">
                 <small className="text-danger">↑ {weather.days[0].tempmax}°</small>
                 <small className="text-success">↓ {weather.days[0].tempmin}°</small>

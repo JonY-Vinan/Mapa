@@ -1,32 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import carsData from './Cars.json';
 
-const CarsData = ({ team_name }) => {
-  const [car, setCar] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    try {
-      const team = carsData.teams.find(t => t.name === team_name);
-      if (!team) throw new Error(`No se encontró el equipo: ${team_name}`);
-      
-      setCar(team.car);
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
-  }, [team_name]);
-
-  if (loading) return <div className="text-center p-4">Cargando los datos del coche...</div>;
-  if (error) return <div className="alert alert-danger">{error}</div>;
-  if (!car) return <div className="alert alert-warning">No se encontraron datos del coche.</div>;
-
+const CarsData = () => {
+  const [car] = useState({
+    model: "RB20",
+    team_name: "Red Bull Racing",
+    engine: {
+      manufacturer: "Honda RBPT",
+      model: "H001",
+      type: "V6 Turbo Híbrido",
+      horsepower: "950+"
+    },
+    performance: {
+      max_speed: "340+ km/h",
+      "0_to_100_kmh": "2.5s"
+    },
+    color: "Azul oscuro",
+    color_code: "#0600EF",
+    image_url: "./f1.jpg",
+    best_laps: [
+      {
+        circuit: "Circuito de Barcelona-Cataluña",
+        best_lap_time: "1:12.345",
+        top_speed: "325 km/h"
+      }
+    ]
+  });
+  
   return (
+    // Información del coche
     <div className="card shadow-sm mb-4">
       <div className="card-header bg-danger text-white">
-        <h3 className="m-0">{car.model} - {team_name}</h3>
+        <h3 className="m-0">
+          {car.model} - {car.team_name}
+        </h3>
       </div>
       <div className="card-body">
         <div className="row">
@@ -70,24 +77,24 @@ const CarsData = ({ team_name }) => {
 
           <div className="col-md-4">
             <div className="text-center mb-3">
-              <img 
-                src={car.image_url} 
-                alt={`${car.model} de ${team_name}`}
+              <img
+                src={car.image_url}
+                alt={`${car.model} de ${car.team_name}`}
                 className="img-fluid rounded"
                 onError={(e) => {
-                  e.target.onerror = null; 
-                  e.target.src = 'https://via.placeholder.com/400x200?text=Imagen+no+disponible';
+                  e.target.onerror = null;
+                  e.target.src = "./f1.jpg";
                 }}
               />
               <div className="mt-2">
                 <span className="fw-bold me-2">Color:</span>
-                <span 
+                <span
                   className="d-inline-block rounded-circle me-2"
                   style={{
-                    width: '20px',
-                    height: '20px',
+                    width: "20px",
+                    height: "20px",
                     backgroundColor: car.color_code,
-                    verticalAlign: 'middle'
+                    verticalAlign: "middle",
                   }}
                 ></span>
                 <span>{car.color}</span>

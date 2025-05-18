@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./Registro.css";
 const F1_TEAMS = {
   Mercedes: ["Lewis Hamilton", "George Russell"],
   RedBull: ["Max Verstappen", "Sergio Pérez"],
@@ -38,151 +38,141 @@ const Registro = () => {
     navigate("/mi_cuenta");
   };
 
-  return (
-    <div
-      className="container-fluid py-5 d-flex align-items-center"
-      style={{
-        backgroundImage:
-          'url("https://images.squarespace-cdn.com/content/v1/68245ffd9f73984bc78ca002/1726020717.370283-TRNVKBHCNMXWGLDLZJKV/imgg-od3-ovrmkmvv.png")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        backgroundColor: "rgb(0 0 0 / 45%) !important",
-      }}
-    >
-      <div className="row justify-content-center w-100">
-        {/* Formulario dentro de tarjeta */}
-        <div className="col-md-6">
-          <div
-            className="card p-4 shadow-lg"
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.9)",
-              borderRadius: "12px",
-            }}
-          >
-            <h1 className="text-center mb-4 fw-bold text-primary">
-              🚀 Únete a la Aventura!
-            </h1>
-            <form onSubmit={handleSubmit}>
-              <div className="row">
-                <div className="col-md-6 mb-3">
-                  <label className="form-label text-secondary">Nombre</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="nombre"
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="col-md-6 mb-3">
-                  <label className="form-label text-secondary">Apellidos</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="apellidos"
-                    value={formData.apellidos}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
+ return (
+    <div className="registro-container">
+        <div className="registro-wrapper">
+            <div className="registro-form-container">
+                <h1 className="registro-title">Únete a la Comunidad F1</h1>
+                <p className="registro-subtitle">Crea tu cuenta y comparte tu pasión por el automovilismo</p>
+                
+                <form className="registro-form" onSubmit={handleSubmit}>
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label htmlFor="nombre" className="form-label">Nombre</label>
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                value={formData.nombre}
+                                onChange={handleChange}
+                                className="form-input"
+                                placeholder="Ej: Carlos"
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="apellidos" className="form-label">Apellidos</label>
+                            <input
+                                type="text"
+                                id="apellidos"
+                                name="apellidos"
+                                value={formData.apellidos}
+                                onChange={handleChange}
+                                className="form-input"
+                                placeholder="Ej: Sainz"
+                                required
+                            />
+                        </div>
+                    </div>
 
-              <div className="mb-3">
-                <label className="form-label text-secondary">
-                  Correo electrónico
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
+                    <div className="form-group">
+                        <label htmlFor="email" className="form-label">Correo electrónico</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="form-input"
+                            placeholder="tu@email.com"
+                            required
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="contraseña" className="form-label">Contraseña</label>
+                        <input
+                            type="password"
+                            id="contraseña"
+                            name="contraseña"
+                            value={formData.contraseña}
+                            onChange={handleChange}
+                            className="form-input"
+                            placeholder="Mínimo 8 caracteres"
+                            required
+                            minLength="8"
+                        />
+                    </div>
+
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label htmlFor="f1Team" className="form-label">Equipo Favorito</label>
+                            <select
+                                id="f1Team"
+                                name="f1Team"
+                                value={formData.f1Team}
+                                onChange={handleChange}
+                                className="form-select"
+                                required
+                            >
+                                <option value="">Selecciona un equipo</option>
+                                {Object.keys(F1_TEAMS).map((team) => (
+                                    <option key={team} value={team}>
+                                        {team}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="favoriteDriver" className="form-label">Piloto Favorito</label>
+                            <select
+                                id="favoriteDriver"
+                                name="favoriteDriver"
+                                value={formData.favoriteDriver}
+                                onChange={handleChange}
+                                className="form-select"
+                                required
+                                disabled={!formData.f1Team}
+                            >
+                                <option value="">
+                                    {formData.f1Team ? "Selecciona un piloto" : "Primero elige equipo"}
+                                </option>
+                                {formData.f1Team &&
+                                    F1_TEAMS[formData.f1Team].map((driver) => (
+                                        <option key={driver} value={driver}>
+                                            {driver}
+                                        </option>
+                                    ))}
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" className="registro-button">
+                        Crear Cuenta
+                        <span className="button-icon">→</span>
+                    </button>
+
+                    <p className="login-link">
+                        ¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a>
+                    </p>
+                </form>
+            </div>
+
+            <div className="registro-image-container">
+                <img
+                    src="https://images.squarespace-cdn.com/content/v1/68245ffd9f73984bc78ca002/1726020718.808429-WUVJNELAWWECOBRGWTKI/imgg-od3-vodtycug.png"
+                    alt="Bienvenido a la comunidad F1"
+                    className="registro-image"
                 />
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label text-secondary">Contraseña</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="contraseña"
-                  value={formData.contraseña}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label text-secondary">
-                  Equipo de F1
-                </label>
-                <select
-                  className="form-select"
-                  name="f1Team"
-                  value={formData.f1Team}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">🏎️ Elige tu equipo</option>
-                  {Object.keys(F1_TEAMS).map((team) => (
-                    <option key={team} value={team}>
-                      {team}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="mb-3">
-                <label className="form-label text-secondary">
-                  Piloto favorito
-                </label>
-                <select
-                  className="form-select"
-                  name="favoriteDriver"
-                  value={formData.favoriteDriver}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">👨‍🏎️ Elige tu piloto</option>
-                  {formData.f1Team &&
-                    F1_TEAMS[formData.f1Team].map((driver) => (
-                      <option key={driver} value={driver}>
-                        {driver}
-                      </option>
-                    ))}
-                </select>
-              </div>
-
-              <button
-                type="submit"
-                className="btn btn-primary mt-3 w-100 fw-bold"
-              >
-                🚀 ¡Registrarme!
-              </button>
-            </form>
-          </div>
+                <div className="image-caption">
+                    <h3>Comparte tu pasión</h3>
+                    <p>Únete a miles de fans de Fórmula 1</p>
+                </div>
+            </div>
         </div>
-
-        {/* Imagen divertida a la derecha */}
-        <div className="col-md-4 d-flex align-items-center justify-content-center mt-5 mt-md-0">
-          <img
-            src="https://images.squarespace-cdn.com/content/v1/68245ffd9f73984bc78ca002/1726020718.808429-WUVJNELAWWECOBRGWTKI/imgg-od3-vodtycug.png"
-            alt="Bienvenido"
-            className="img-fluid rounded shadow-lg"
-            style={{
-              maxHeight: "400px",
-              objectFit: "cover",
-              animation: "bounce 2s infinite",
-            }}
-          />
-        </div>
-      </div>
     </div>
-  );
+);
+
 };
 
 export default Registro;

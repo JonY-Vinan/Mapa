@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Registro from "./pages/Registro";
 import MiCuenta from "./pages/MiCuenta";
 import Inicio from "./pages/Inicio";
+// import InicioPrueba from "./pages/InicioPrueba";
 
 const App = () => {
   return (
